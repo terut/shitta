@@ -4,11 +4,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username, null: false
       t.string :email, null: false
       t.string :password_digest, null: false
-      t.string :name
+      t.string :name, null: false
       t.text :bio
 
       t.timestamps
-
     end
 
     change_table :users do |t|
