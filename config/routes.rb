@@ -1,5 +1,8 @@
 Shitta::Application.routes.draw do
-  resources :users
+  get 'signin' => "sessions#new"
+  get 'signup' => "users#new"
 
-  root :to => 'users#signin'
+  root :to => 'sessions#new'
+
+  resources :users
 end

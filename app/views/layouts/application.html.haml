@@ -15,5 +15,9 @@
               %li.active=link_to 'Home', root_path
               %li=link_to 'About', root_path
               %li=link_to 'Contact', root_path
-    #container
-      = yield
+          %p.navbar-text.pull-right
+            %img.user-minimg{ src: 'https://si0.twimg.com/profile_images/1315548884/iyasimini_normal.png' }
+            %a.navbar-link{ href: '#'} Username
+    #container.container-fluid
+      .row-fluid
+        = yield

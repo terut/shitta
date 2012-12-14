@@ -30,15 +30,37 @@ $navbarActiveColor: #222;
 .navbar-inverse .nav .active > a:focus {
   background-color: $navbarActiveColor;
 }
-.navbar-inverse .nav > li > a:focus,
-.navbar-inverse .nav > li > a:hover {
+.navbar-inverse .nav > li > a:hover,
+.navbar-inverse .nav > li > a:focus {
   color: $pink;
+}
+.navbar-inverse .navbar-link {
+  color: $white;
+}
+.navbar-inverse .navbar-link:hover, 
+.navbar-inverse .navbar-link:focus {
+  color: $pink;
+  text-decoration: none;
 }
 
 // original 
+@mixin margin-tbase {
+  margin-top: 20px;
+}
 body {
   background: $white url(bg.png) repeat;
 }
 #container {
   padding: 40px 50px 0 50px;
+}
+.navbar-text .user-minimg {
+  width: 28px;
+  height: 28px;
+  margin-right: 3px;
+}
+.hidden {
+  display: none;
+}
+.margin-t {
+  @include margin-tbase;
 }

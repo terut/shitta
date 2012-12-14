@@ -1,0 +1,9 @@
+.margin-t.span4.offset4
+  %form
+    %h1 Sign up
+    %input.input-midium{ type: 'text', placeholder: 'Username' }
+    %input.input-midium{ type: 'password', placeholder: 'Password' }
+    %input.input-midium{ type: 'password', placeholder: 'Confirmation' }
+    %div
+      %input.btn.btn-large.btn-primary{ type: 'submit', value: 'Sign up' }
+      = link_to 'Cancel', signin_path, class: 'btn btn-large' 

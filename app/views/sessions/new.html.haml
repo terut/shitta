@@ -1,0 +1,10 @@
+.margin-t.span4.offset4
+  %form
+    %h1 Sign in
+    %input.input-midium{ type: 'text', placeholder: 'Username' }
+    %input.input-midium{ type: 'password', placeholder: 'Password' }
+    %label.checkbox
+      %input{ type: 'checkbox', value: 'remember'} Remember me
+    %div
+      %input.btn.btn-large.btn-primary{ type: 'submit', value: 'Sign in' }
+      = link_to 'Sign up', signup_path, class: 'btn btn-large'
