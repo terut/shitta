@@ -6,4 +6,5 @@ Shitta::Application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :notes
 end
