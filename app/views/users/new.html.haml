@@ -1,9 +1,14 @@
 .margin-t.span4.offset4
-  %form
+  - if @user.errors.any?
+    .errors-message
+      %ul
+      - @user.errors.full_messages.each do |message|
+        %li= message
+  = form_for @user do |f|
     %h1 Sign up
-    %input.input-midium{ type: 'text', placeholder: 'Username' }
-    %input.input-midium{ type: 'password', placeholder: 'Password' }
-    %input.input-midium{ type: 'password', placeholder: 'Confirmation' }
+    = f.text_field :username, class: 'input-midium', placeholder: 'Username'
+    = f.password_field :password, class: 'input-midium', placeholder: 'Password'
+    = f.password_field :password_confirmation, class: 'input-midium', placeholder: 'Confirmation'
     %div
-      %input.btn.btn-large.btn-primary{ type: 'submit', value: 'Sign up' }
+      = f.submit 'Sign up', class: 'btn btn-large btn-primary'
       = link_to 'Cancel', signin_path, class: 'btn btn-large' 
