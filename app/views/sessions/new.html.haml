@@ -1,10 +1,11 @@
 .margin-t.span4.offset4
-  %form
+  = form_tag sessions_path do
     %h1 Sign in
-    %input.input-midium{ type: 'text', placeholder: 'Username' }
-    %input.input-midium{ type: 'password', placeholder: 'Password' }
-    %label.checkbox
-      %input{ type: 'checkbox', value: 'remember'} Remember me
+    = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
+    = text_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
+    = label_tag 'remember', class: 'checkbox' do
+      = check_box_tag 'remember', 'remember'
+      Remember me
     %div
-      %input.btn.btn-large.btn-primary{ type: 'submit', value: 'Sign in' }
+      = submit_tag 'Sign in', class: 'btn btn-large btn-primary'
       = link_to 'Sign up', signup_path, class: 'btn btn-large'
