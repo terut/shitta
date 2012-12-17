@@ -1,0 +1,10 @@
+%div.margin-t
+  .span7.offset1
+    %h1 Note List
+  .span2.offset1
+    = link_to 'Post', new_note_path, class: 'btn btn-primary btn-large'
+%ul.margin-t.span12.unstyled
+  - @notes.each do |note|
+    %li
+      %p= note.title
+      %p= note.body
