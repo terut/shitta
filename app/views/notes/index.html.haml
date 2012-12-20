@@ -1,10 +1,8 @@
-%div.margin-t
-  .span7.offset1
-    %h1 Note List
-  .span2.offset1
-    = link_to 'Post', new_note_path, class: 'btn btn-primary btn-large'
-%ul.margin-t.span12.unstyled
+%h1.title.shadow-line Notes Feed
+%ul.margin-t.media-list
   - @notes.each do |note|
-    %li
-      %p= note.title
-      %p= note.body
+    %li.media.shadow-line
+      = link_to image_tag(note.user.image_url, class: 'media-object user-img'), '#', class: 'pull-left'
+      .media-body
+        .user-name.media-heading= link_to note.user.name, '#'
+        %h2= link_to note.title, '#'

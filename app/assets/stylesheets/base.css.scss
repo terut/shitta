@@ -18,9 +18,10 @@ $pink: #d64e80;
 $blue: #cbf2ff;
 $darkPink: #c22d64;
 $navbarActiveColor: #222;
+$mainTextColor: #333;
 
 .navbar-inverse .navbar-inner {
-  background-image: url(bg2.png);
+  background-image: url(image-path('bg2.png'));
 }
 .navbar-inverse .brand, .navbar-inverse .nav > li > a {
   color: $white;
@@ -32,14 +33,14 @@ $navbarActiveColor: #222;
 }
 .navbar-inverse .nav > li > a:hover,
 .navbar-inverse .nav > li > a:focus {
-  color: $pink;
+  color: $darkPink;
 }
 .navbar-inverse .navbar-link {
   color: $white;
 }
 .navbar-inverse .navbar-link:hover, 
 .navbar-inverse .navbar-link:focus {
-  color: $pink;
+  color: $darkPink;
   text-decoration: none;
 }
 
@@ -47,11 +48,37 @@ $navbarActiveColor: #222;
 @mixin margin-tbase {
   margin-top: 20px;
 }
+@mixin webfont {
+  font-family: 'Vegur-Regular';
+}
+@mixin webfont-light {
+  font-family: 'Vegur-Light';
+}
+@mixin webfont-bold {
+  font-family: 'Vegur-Bold';
+}
+@font-face {
+  font-family: 'Vegur-Regular';
+  src: url(font-path('Vegur-Regular.otf')) format('opentype');
+}
+@font-face {
+  font-family: 'Vegur-Light';
+  src: url(font-path('Vegur-Light.otf')) format('opentype');
+}
+@font-face {
+  font-family: 'Vegur-Bold';
+  src: url(font-path('Vegur-Bold.otf')) format('opentype');
+}
 body {
-  background: $white url(bg.png) repeat;
+  background: $white url(image-path('bg.png')) repeat;
 }
 #container {
-  padding: 40px 50px 0 50px;
+  width: 980px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.brand {
+  @include webfont-bold;
 }
 .navbar-text .user-minimg {
   width: 28px;
@@ -63,4 +90,31 @@ body {
 }
 .margin-t {
   @include margin-tbase;
+}
+.title {
+  @include webfont;
+  font-size: 30px;
+}
+.btn-large-font {
+  @include webfont;
+  font-size: 20px;
+}
+.shadow-line {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: white 0 1px 0;
+  -moz-box-shadow: white 0 1px 0;
+  -webkit-box-shadow: white 0 1px 0;
+}
+.user-img {
+  width: 45px;
+  height: 45px;
+}
+.user-name a {
+  color: $mainTextColor;
+  font-family: bold;
+  font-size: 15px;
+}
+.user-name a:focus,
+.user-name a:hover {
+  color: $darkPink;
 }
