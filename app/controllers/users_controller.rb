@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user].reverse_merge(name: params[:user][:username]))
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       render :new
