@@ -12,4 +12,5 @@
  *# require_tree .
  *= require bootstrap.min.css
  *= require base.css.scss
+ *= require notes.css.scss
  */

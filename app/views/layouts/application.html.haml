@@ -16,9 +16,16 @@
               %li=link_to 'About', root_path
               %li=link_to 'Contact', root_path
           %p.navbar-text.pull-right
-            - if current_user
-              %img.user-minimg{ src: 'https://si0.twimg.com/profile_images/1315548884/iyasimini_normal.png' }
+            - if signin?
+              = link_to image_tag(current_user.image_url, class: 'user-minimg'), '#'
               = link_to current_user.username, '#', class: 'navbar-link'
+            - else
+              = link_to 'Login', signin_path, class: 'navbar-link'
     #container.container-fluid
-      .row-fluid
-        = yield
+      .row-fluid.margin-t
+        .span9
+          .row-fluid
+            = yield
+        .span3
+          .row-fluid
+            = link_to 'Post Note', new_note_path, class: 'btn btn-block btn-primary btn-large btn-large-font'
