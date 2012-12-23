@@ -7,3 +7,30 @@
   line-height: 25px;
   font-size: 25px;
 }
+.code-container {
+  border: 1px solid #ccc;
+  margin: 0 0 10px;
+
+  .code-title {
+    border-bottom: 1px solid #ccc;
+    padding: 5px 15px;
+    font-weight: bold;
+    color: #f7f7f7;
+    background-image: url(image-path('bg2.png'));
+  }
+  pre {
+    margin: 0 0;
+    border: none;
+  }
+  .linenos {
+    border-right: 1px solid #ccc;
+  }
+  .linenos pre, {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+  }
+  .code {
+    width: 100%;
+  }
+}
