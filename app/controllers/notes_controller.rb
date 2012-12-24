@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  layout 'notes'
+
   def index
     @notes = Note.all
   end

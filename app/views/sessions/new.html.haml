@@ -1,11 +1,12 @@
-.margin-t.span4.offset4
-  = form_tag sessions_path do
-    %h1 Sign in
-    = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
-    = text_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
-    = label_tag 'remember', class: 'checkbox' do
-      = check_box_tag 'remember', 'remember'
-      Remember me
-    %div
-      = submit_tag 'Sign in', class: 'btn btn-large btn-primary'
-      = link_to 'Sign up', signup_path, class: 'btn btn-large'
+.row-fluid.margin-t
+  .span4.offset4
+    = form_tag sessions_path do
+      %h1 Sign in
+      = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
+      = text_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
+      = label_tag 'remember', class: 'checkbox' do
+        = check_box_tag 'remember', 'remember'
+        Remember me
+      %div
+        = submit_tag 'Sign in', class: 'btn btn-large btn-primary'
+        = link_to 'Sign up', signup_path, class: 'btn btn-large'
