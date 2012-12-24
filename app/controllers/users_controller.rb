@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   skip_before_filter :require_signin, only: [:new, :create]
 
+  layout 'application', only: [:new, :create]
+
   def new
     @user = User.new
   end
