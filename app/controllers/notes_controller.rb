@@ -15,9 +15,24 @@ class NotesController < ApplicationController
     @note = current_user.notes.build(params[:note])
 
     if @note.save
-      redirect_to root_path
+      redirect_to note_path(@note)
     else
       render :new
+    end
+  end
+
+  def edit
+    @note = Note.find(params[:id])
+    render :new
+  end
+
+  def update
+    @note = current_user.notes.build(params[:note])
+
+    if @note.save
+      redirect_to note_path(@note)
+    else
+      render :edit
     end
   end
 end

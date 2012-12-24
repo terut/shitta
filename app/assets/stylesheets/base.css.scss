@@ -72,6 +72,15 @@ $mainTextColor: #333;
 body {
   background: $white url(image-path('bg.png')) repeat;
 }
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 27px;
+}
+h3 {
+  font-size: 22px;
+}
 #container {
   width: 980px;
   margin: 0 auto;
