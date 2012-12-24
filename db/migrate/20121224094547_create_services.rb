@@ -4,7 +4,6 @@ class CreateServices < ActiveRecord::Migration
       t.references :user, null:false
       t.string :username, null: false
       t.string :token, null: false
-      t.string :provider, null: false
 
       t.timestamps
     end
