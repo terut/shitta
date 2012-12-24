@@ -1,0 +1,11 @@
+- content_for :content do
+  .row-fluid.margin-t
+    #main.span9
+      .row-fluid
+        = yield
+    #sidebar.span3
+      - if content_for?(:sidebar)
+        = yield(:sidebar)
+      - else
+        = link_to 'Post Note', new_note_path, class: 'btn btn-block btn-primary btn-large btn-large-font'
+= render template: 'layouts/application'
