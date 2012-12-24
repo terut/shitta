@@ -48,6 +48,12 @@ $mainTextColor: #333;
 @mixin margin-tbase {
   margin-top: 20px;
 }
+@mixin margin-bbase {
+  margin-bottom: 20px;
+}
+@mixin margin-bmbase {
+  margin-bottom: 10px;
+}
 @mixin webfont {
   font-family: 'Vegur-Regular';
 }
@@ -99,6 +105,9 @@ h3 {
 }
 .margin-t {
   @include margin-tbase;
+}
+.margin-bm {
+  @include margin-bmbase;
 }
 .title {
   @include webfont;

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :password, :password_confirmation, :name, :email, :bio
 
   has_many :notes
+  has_many :services
 
   validates :username, presence: true
   validates :password, presence: true, on: :create

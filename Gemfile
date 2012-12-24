@@ -7,6 +7,8 @@ gem 'turbo-sprockets-rails3'
 gem 'redcarpet'
 gem 'pygments.rb'
 
+gem 'qiita'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
