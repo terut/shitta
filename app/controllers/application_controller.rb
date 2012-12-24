@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signin?
 
+  before_filter :require_signin
+
   private
 
   def current_user
@@ -11,5 +13,11 @@ class ApplicationController < ActionController::Base
 
   def signin?
     !!current_user
+  end
+
+  def require_signin
+    unless signin?
+      redirect_to signin_path
+    end
   end
 end
