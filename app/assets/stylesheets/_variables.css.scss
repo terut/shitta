@@ -1,0 +1,43 @@
+// bootstrap patch
+//
+// @blue: #cbf2ff
+// @pink: #d64e80
+// hover: #c22d64
+// @linkColor: @pink
+// @navbarBackground: #222
+// @navbarBackgroundHighlight: #333
+// @navbarText: @white
+// @navbarLinkColor: @white
+// @navbarLinkColorHover: @pink
+// @dropdownBackground: @navbarBackground
+// @dropdownLinkColor: @white
+// @dropdownLinkColorHover: @pink
+// background-image: url(bg2.png);
+$white: #f7f7f7;
+$pink: #d64e80;
+$blue: #cbf2ff;
+$darkPink: #c22d64;
+$navbarActiveColor: #222;
+$mainTextColor: #333;
+
+@mixin margin-tbase {
+  margin-top: 20px;
+}
+@mixin margin-bbase {
+  margin-bottom: 20px;
+}
+@mixin margin-bmbase {
+  margin-bottom: 10px;
+}
+@mixin webfont {
+  font-family: 'Vegur-Regular';
+  font-weight: 200;
+}
+@mixin webfont-light {
+  font-family: 'Vegur-Light';
+  font-weight: 200;
+}
+@mixin webfont-bold {
+  font-family: 'Vegur-Bold';
+  font-weight: 200;
+}

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :require_signin, only: [:new, :create]
+  skip_before_filter :require_signin, only: [:welcome, :new, :create]
 
   def create
     user = User.find_by_username(params[:username])
