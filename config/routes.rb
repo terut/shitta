@@ -1,12 +1,13 @@
 class SignedInConstraint
   def self.matches?(request)
-    request.cookies.key?('user_token')
+    !request.session[:user_id].blank?
   end
 end
 
 Shitta::Application.routes.draw do
-  get 'signin' => "sessions#new"
-  get 'signup' => "users#new"
+  get 'signin' => 'sessions#new'
+  get 'signup' => 'users#new'
+  get 'signout' => 'sessions#destroy'
 
   root to: 'notes#index', constraints: SignedInConstraint
   root to: 'sessions#welcome'

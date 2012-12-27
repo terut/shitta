@@ -3,7 +3,7 @@
     = form_tag sessions_path do
       %h1 Sign in
       = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
-      = text_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
+      = password_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
       = label_tag 'remember', class: 'checkbox' do
         = check_box_tag 'remember', 'remember'
         Remember me
