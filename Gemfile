@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.12'
 gem 'mysql2'
 gem 'haml'
 gem 'turbo-sprockets-rails3'
@@ -35,6 +35,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'libnotify'
+  gem 'rb-inotify', '~> 0.8.8'
   gem 'debugger'
   gem 'pry-rails'
   gem 'pry-debugger'
