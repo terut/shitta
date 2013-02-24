@@ -1,4 +1,4 @@
-@import '_variables.css.scss';
+@import '_variables';
 
 .navbar-inverse .navbar-inner {
   background-image: url(image-path('bg2.png'));
@@ -77,7 +77,7 @@ h3 {
 }
 .btn-large-font {
   @include webfont;
-  font-size: 20px;
+  @include font-xlarge;
 }
 .shadow-line {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -92,7 +92,7 @@ h3 {
 .user-name a {
   color: $mainTextColor;
   font-family: bold;
-  font-size: 15px;
+  @include font-large;
 }
 .user-name a:focus,
 .user-name a:hover {

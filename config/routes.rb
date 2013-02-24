@@ -14,6 +14,9 @@ Shitta::Application.routes.draw do
 
   resources :users
   resources :notes
-  resources :services
+
+  scope 'settings' do
+    resources :services
+  end
   resources :sessions
 end

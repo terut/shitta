@@ -1,5 +1,9 @@
 class ServicesController < ApplicationController
-  layout 'users'
+  layout 'settings'
+
+  def index
+    @services = current_user.services
+  end
 
   def create
     @service = current_user.services.build
