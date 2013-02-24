@@ -1,13 +1,23 @@
 class ServicesController < ApplicationController
-  layout 'users'
+  layout 'settings'
+
+  def index
+    @services = current_user.services
+  end
 
   def create
     @service = current_user.services.build
 
     if @service.save_with_api(params[:username], params[:password])
-      redirect_to root_path
+      redirect_to services_path
     else
-      render :new
+      render :index
     end
+  end
+
+  def destroy
+    @service = current_user.services.first
+    @service.destroy
+    redirect_to services_path
   end
 end

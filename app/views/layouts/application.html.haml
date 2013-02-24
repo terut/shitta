@@ -19,7 +19,7 @@
           %p.navbar-text.pull-right
             - if signin?
               = link_to image_tag(current_user.image_url, class: 'user-minimg'), '#'
-              = link_to current_user.username, '#', class: 'navbar-link'
+              = link_to current_user.username, services_path, class: 'navbar-link'
             - else
               = link_to 'Signin', signin_path, class: 'navbar-link'
     #container.container-fluid
