@@ -1,0 +1,5 @@
+%li.media.shadow-line
+  = link_to image_tag(note.user.image_url, class: 'media-object user-img'), '#', class: 'pull-left'
+  .media-body
+    .user-name.media-heading= link_to note.user.name, '#'
+    %h2= link_to note.title, note_path(note)

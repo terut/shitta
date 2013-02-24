@@ -2,9 +2,4 @@
   = link_to 'Post Note', new_note_path, class: 'btn btn-block btn-primary btn-large btn-large-font'
 %h1.title.shadow-line Notes Feed
 %ul.margin-t.media-list
-  - @notes.each do |note|
-    %li.media.shadow-line
-      = link_to image_tag(note.user.image_url, class: 'media-object user-img'), '#', class: 'pull-left'
-      .media-body
-        .user-name.media-heading= link_to note.user.name, '#'
-        %h2= link_to note.title, note_path(note)
+  = render @notes

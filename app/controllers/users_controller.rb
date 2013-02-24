@@ -3,6 +3,12 @@ class UsersController < ApplicationController
 
   layout 'application', only: [:new, :create]
 
+  helper_method :user
+
+  def show
+    @notes = user.notes
+  end
+
   def new
     @user = User.new
   end
@@ -16,5 +22,11 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def user
+    @user ||= User.find_by_username!(params[:id])
   end
 end
