@@ -6,7 +6,8 @@ class Service < ActiveRecord::Base
     self.assign_attributes({ username: qiita.url_name, token: qiita.token },
                            without_protection: true)
     self.save
-  #rescue
-  #  return false
+  rescue
+    # TODO bad request exception
+    return false
   end
 end

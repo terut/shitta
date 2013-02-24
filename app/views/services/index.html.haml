@@ -2,9 +2,9 @@
 - if @services.blank?   
   .span4.offset4
     = form_tag services_path do
-      %h1 Connect Qiita 
+      %h3 Connect Qiita Account
       = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
-      = text_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
+      = password_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
       %div
         = submit_tag 'Connect', class: 'btn btn-large btn-primary'
         = link_to 'Cancel', root_path, class: 'btn btn-large'
@@ -15,4 +15,4 @@
       .span5
         Connected as: 
         = link_to "#{@services.first.username}", "http://qiita.com/users/#{@services.first.username}" 
-      .span3= link_to 'Disconnect', '#', class: 'btn btn-danger'
+      .span3= link_to 'Disconnect', service_path('qiita'), class: 'btn btn-danger', method: :delete
