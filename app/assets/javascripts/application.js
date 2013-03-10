@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//#= require_tree .
+//= require bootstrap.min.js
+//= require base.js.coffee

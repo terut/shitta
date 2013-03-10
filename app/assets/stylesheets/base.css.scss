@@ -23,7 +23,16 @@
   color: $darkPink;
   text-decoration: none;
 }
+.dropdown a {
+  color: $white;
+  text-decoration: none;
+}
+.dropdown li > a:hover,
+.dropdown li > a:hover {
+  color: $white;
+  text-decoration: none;
 
+}
 // original 
 @font-face {
   font-family: 'Vegur-Regular';
@@ -61,6 +70,9 @@ h3 {
   width: 28px;
   height: 28px;
   margin-right: 3px;
+}
+.navbar-text .dropdown {
+  display: inline;
 }
 .hidden {
   display: none;

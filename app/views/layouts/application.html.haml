@@ -16,10 +16,15 @@
               %li.active=link_to 'Home', root_path
               %li=link_to 'About', root_path
               %li=link_to 'Contact', root_path
-          %p.navbar-text.pull-right
+          .navbar-text.pull-right
             - if signin?
-              = link_to image_tag(current_user.image_url, class: 'user-minimg'), '#'
-              = link_to current_user.username, services_path, class: 'navbar-link'
+              = link_to image_tag(current_user.image_url, class: 'user-minimg'), user_path(current_user.username) 
+              .dropdown
+                = link_to current_user.username, '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown'
+                %ul.dropdown-menu.pull-right{ role: 'menu', 'aria-labelledby' => 'dLabel' }
+                  %li= link_to 'Account', services_path, tabindex: '-1'
+                  %li= link_to 'Profile', user_path(current_user.username), tabindex: '-1'
+                  %li= link_to 'Signout', signout_path, tabindex: '-1'
             - else
               = link_to 'Signin', signin_path, class: 'navbar-link'
     #container.container-fluid
