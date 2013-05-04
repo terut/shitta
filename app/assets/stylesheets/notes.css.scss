@@ -1,6 +1,8 @@
 // Place all the styles related to the notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import '_variables';
+
 .media h2 {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -32,5 +34,12 @@
   }
   .code {
     width: 100%;
+  }
+}
+.comment {
+  @include margin-tbase;
+  .comment_body {
+    padding: 10px;
+    padding-bottom: 0;
   }
 }
