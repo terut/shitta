@@ -5,6 +5,9 @@ class SignedInConstraint
 end
 
 Shitta::Application.routes.draw do
+  resources :comments
+
+
   get 'signin' => 'sessions#new'
   get 'signup' => 'users#new'
   get 'signout' => 'sessions#destroy'
