@@ -39,6 +39,20 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+
+    #pid = 0
+    config.before(:suite) do
+      #cmd = "afplay ~/Music/ff5_2_03_bigbridge.mp3"
+      #pid = Process.spawn(cmd, err: '/dev/null')
+    end
+
+    config.after(:suite) do
+      #Process.kill("QUIT", pid)
+      #cmd = "afplay ~/Music/ff6_1_06_fanfare.mp3"
+      #pid = Process.spawn(cmd, err: '/dev/null')
+      #sleep 5
+      #Process.kill("HUP", pid)
+    end
   end
 end
 

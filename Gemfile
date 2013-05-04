@@ -34,8 +34,10 @@ group :development, :test do
   #gem 'capstrano-ext'
   gem 'guard-rspec'
   gem 'guard-spork'
+  if RUBY_PLATFORM =~ /linux/
   gem 'libnotify'
   gem 'rb-inotify', '~> 0.8.8'
+  end
   gem 'debugger'
   gem 'pry-rails'
   gem 'pry-debugger'
