@@ -66,11 +66,7 @@ h3 {
 .brand {
   @include webfont-bold;
 }
-.navbar-text .user-minimg {
-  width: 28px;
-  height: 28px;
-  margin-right: 3px;
-}
+
 .navbar-text .dropdown {
   display: inline;
 }
@@ -100,6 +96,11 @@ h3 {
 .user-img {
   width: 45px;
   height: 45px;
+}
+.user-img-s {
+  width: 28px;
+  height: 28px;
+  margin-right: 3px;
 }
 .user-name a {
   color: $mainTextColor;

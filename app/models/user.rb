@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :notes
   has_many :services
+  has_many :comments
 
   validates :username, presence: true
   validates :password, presence: true, on: :create

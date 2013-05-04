@@ -5,6 +5,8 @@ class SignedInConstraint
 end
 
 Shitta::Application.routes.draw do
+
+
   get 'signin' => 'sessions#new'
   get 'signup' => 'users#new'
   get 'signout' => 'sessions#destroy'
@@ -13,7 +15,11 @@ Shitta::Application.routes.draw do
   root to: 'sessions#welcome'
 
   resources :users
-  resources :notes
+  resources :notes do
+    resources :comments, only: [:index, :create]
+  end
+
+  resource :comments, except: [:index, :create]
 
   scope 'settings' do
     resources :services
