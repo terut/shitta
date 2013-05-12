@@ -8,4 +8,11 @@ FactoryGirl.define do
     name { username }
     bio "逃げちゃダメだ"
   end
+
+  factory :specify_user, parent: :user do
+    username 'test'
+    email 'test@example.com'
+    password 'test'
+    password_confirmation 'test'
+  end
 end
