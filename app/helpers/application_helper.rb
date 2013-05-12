@@ -36,4 +36,9 @@ module ApplicationHelper
     )
     markdown.render(text).html_safe
   end
+
+  # css class name for js
+  def js_css(class_name)
+    "js-#{class_name}"
+  end
 end
