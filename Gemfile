@@ -8,6 +8,7 @@ gem 'redcarpet'
 gem 'pygments.rb'
 
 gem 'qiita'
+gem 'valid_email'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -30,13 +31,15 @@ group :development, :test do
   gem 'thin'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
   #gem 'capistrano'
   #gem 'capstrano-ext'
   gem 'guard-rspec'
   gem 'guard-spork'
   if RUBY_PLATFORM =~ /linux/
-  gem 'libnotify'
-  gem 'rb-inotify', '~> 0.8.8'
+    gem 'libnotify'
+    gem 'rb-inotify', '~> 0.8.8'
   end
   gem 'debugger'
   gem 'pry-rails'

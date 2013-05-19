@@ -1,11 +1,18 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
+# coding: utf-8
 FactoryGirl.define do
   factory :user do
-    username "MyString"
-    email "MyString"
-    password_digest "MyString"
-    name "MyString"
-    bio "MyText"
+    sequence(:username) {|n| "ikari#{n}"}
+    sequence(:email) {|n| "ikari#{n}@example.com"}
+    password 'ikari'
+    password_confirmation 'ikari'
+    name { username }
+    bio "逃げちゃダメだ"
+  end
+
+  factory :specify_user, parent: :user do
+    username 'test'
+    email 'test@example.com'
+    password 'test'
+    password_confirmation 'test'
   end
 end

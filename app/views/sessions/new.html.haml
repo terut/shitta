@@ -4,9 +4,9 @@
       %h1 Sign in
       = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
       = password_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
-      = label_tag 'remember', class: 'checkbox' do
-        = check_box_tag 'remember', 'remember'
-        Remember me
+      =# label_tag 'remember', class: 'checkbox' do
+      =# check_box_tag 'remember', 'remember'
+      =# Remember me
       %div
         = submit_tag 'Sign in', class: 'btn btn-large btn-primary'
         = link_to 'Cancel', root_path, class: 'btn btn-large'

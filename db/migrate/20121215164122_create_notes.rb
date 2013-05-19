@@ -1,4 +1,5 @@
 class CreateNotes < ActiveRecord::Migration
+  # TODO review e.g. db length
   def change
     create_table :notes do |t|
       t.references :user, null:false

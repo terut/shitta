@@ -8,8 +8,9 @@
     = form_for @user do |f|
       %h1 Sign up
       = f.text_field :username, class: 'input-midium', placeholder: 'Username'
+      = f.text_field :email, class: 'input-midium', placeholder: 'Email'
       = f.password_field :password, class: 'input-midium', placeholder: 'Password'
       = f.password_field :password_confirmation, class: 'input-midium', placeholder: 'Confirmation'
       %div
-        = f.submit 'Sign up', class: 'btn btn-large btn-primary'
-        = link_to 'Cancel', signin_path, class: 'btn btn-large'
+        = f.submit 'Create an account', class: 'btn btn-large btn-primary'
+        = link_to 'Cancel', root_path, class: 'btn btn-large'
