@@ -1,4 +1,5 @@
 class CreateUsers < ActiveRecord::Migration
+  # TODO review db options, e.g. length
   def change
     create_table :users do |t|
       t.string :username, null: false

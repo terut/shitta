@@ -1,4 +1,5 @@
 class CreateComments < ActiveRecord::Migration
+  # TODO review e.g. db length
   def change
     create_table :comments do |t|
       t.references :note, null: false

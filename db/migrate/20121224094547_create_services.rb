@@ -1,4 +1,5 @@
 class CreateServices < ActiveRecord::Migration
+  # TODO review e.g. db length
   def change
     create_table :services do |t|
       t.references :user, null:false
