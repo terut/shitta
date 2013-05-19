@@ -23,6 +23,12 @@ describe User do
           @user = build(:user, username: '_az\n09_')
           expect(@user).to be_invalid
         end
+
+        it 'same name is invalid' do
+          @user = create(:user, username: 'samename')
+          @user = build(:user, username: 'samename')
+          expect(@user).to be_invalid
+        end
       end
 
       context 'password' do
