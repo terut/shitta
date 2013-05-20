@@ -1,4 +1,6 @@
 # coding: utf-8
+require 'spec_helper'
+
 describe 'welcome' do
   context 'signup' do
     let(:user) { build(:specify_user) }
