@@ -20,6 +20,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      # TODO rails 4.0 remove password_digest validation
+      @user.errors.messages.delete(:password_digest)
       render :new
     end
   end

@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :note do
-    user nil
-    title "MyString"
-    raw_body "MyString"
+    user
+    title "aaa"
+    raw_body "# h1ダグです\n# h2タグです"
   end
 end
