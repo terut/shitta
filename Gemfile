@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
-gem 'mysql2'
+gem 'mysql2', '0.3.12b6'
 gem 'haml'
 gem 'turbo-sprockets-rails3'
 gem 'redcarpet'
