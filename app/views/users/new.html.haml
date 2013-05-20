@@ -1,10 +1,6 @@
 .row-fluid.margin-t
   .span4.offset4
-    - if @user.errors.any?
-      .errors-message.alert.alert-block.alert-error
-        %ul.unstyled
-          - @user.errors.full_messages.each do |message|
-            %li= message
+    = render partial: "errors", object: @user, as: :model
     = form_for @user do |f|
       %h1 Sign up
       = f.text_field :username, class: 'input-midium', placeholder: 'Username'
