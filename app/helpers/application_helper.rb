@@ -24,7 +24,7 @@ module ApplicationHelper
 
   def markdown(text)
     markdown = Redcarpet::Markdown.new(
-      Pygmentize.new(filter_html: true, hard_wrap: true),
+      Pygmentize.new(filter_html: true, with_toc_data: true, hard_wrap: true),
       no_intra_emphasis: true,
       tables: true,
       fenced_code_blocks: true,
