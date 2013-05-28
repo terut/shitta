@@ -66,4 +66,45 @@ describe User do
       end
     end
   end
+
+  describe '#owner?' do
+    let(:user) { create(:user) }
+    let(:owner_note) { create(:note, user: user) }
+    let(:note) { create(:note) }
+
+    context 'when model is nil' do
+      it { user.owner?(nil).should be_false}
+    end
+    context 'when user_id method undefined with model' do
+      it { user.owner?(Object.new).should be_false }
+    end
+    context 'when user_id is different' do
+      it { user.owner?(note).should be_false }
+    end
+    context 'when user_id is same' do
+      it { user.owner?(owner_note).should be_true }
+    end
+  end
+
+  describe '#connected?' do
+    context 'when connected user' do
+      let(:connected_user) { create(:connected_user) }
+      it { connected_user.connected?.should be_true }
+    end
+    context 'when unconnected user' do
+      let(:user) { create(:user) }
+      it { user.connected?.should be_false }
+    end
+  end
+
+  describe '#service_token' do
+    context 'when connected user' do
+      let(:connected_user) { create(:connected_user) }
+      it { connected_user.service_token.should be_kind_of(String) }
+    end
+    context 'when unconnected user' do
+      let(:user) { create(:user) }
+      it { user.service_token.should be_nil }
+    end
+  end
 end
