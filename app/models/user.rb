@@ -16,4 +16,21 @@ class User < ActiveRecord::Base
   def image_url
     'https://exstamp01.s3-ap-northeast-1.amazonaws.com/uploads/user/image/22/size_120_images.jpg'
   end
+
+  # TODO rspec
+  def owner?(model)
+    return false unless model.respond_to?(:user_id)
+
+    self.id == model.user_id
+  end
+
+  def connected?
+    !self.services.blank?
+  end
+
+  def service_token
+    return nil unless connected?
+
+    self.services.first.token
+  end
 end
