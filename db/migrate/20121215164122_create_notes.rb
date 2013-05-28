@@ -5,6 +5,7 @@ class CreateNotes < ActiveRecord::Migration
       t.references :user, null:false
       t.string :title, null: false
       t.string :raw_body, null: false
+      t.string :uuid
 
       t.timestamps
     end
