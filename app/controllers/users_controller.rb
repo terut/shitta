@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user].reverse_merge(name: params[:user][:username]))
+    @user = User.new(params[:user].reverse_merge(name: params[:user][:username]),
+                     without_protection: true)
 
     if @user.save
       session[:user_id] = @user.id
