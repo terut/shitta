@@ -1,10 +1,16 @@
 - content_for :highlight do
   = stylesheet_link_tag "syntax", :media => "all"
 - content_for :sidebar do
-  = link_to 'Edit', edit_note_path(@note), class: 'btn btn-block btn-primary btn-large btn-large-font'
+  - if current_user.owner?(@note)
+    = link_to 'Edit', edit_note_path(@note), class: 'btn btn-block btn-primary btn-large btn-large-font'
+    - if current_user.connected?
+      -# TODO decorator
+      = link_to 'Share Qiita', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post
+    - else
+      = link_to 'Connect Qiita', services_path, class: 'btn btn-block btn-large btn-large-font'
 .note
   %h1.shadow-line= @note.title
-  = markdown @note.raw_body
+  ~ markdown @note.raw_body
 .comments
   %h3.shadow-line Comments
   %ul.unstyled
@@ -13,7 +19,7 @@
         %div
           = link_to image_tag(comment.user.image_url, class: 'user-img-s'), user_path(comment.user.username)
           = link_to comment.user.name, user_path(comment.user.username)
-        %div.comment_body= markdown comment.raw_body
+        %div.comment_body~ markdown comment.raw_body
   .div
     = form_for :comment, url: note_comments_path(@note) do |f|
       = f.text_area :raw_body, class: 'input-block-level', placeholder: 'Comment', rows: "3"

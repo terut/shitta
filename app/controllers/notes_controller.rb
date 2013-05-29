@@ -22,17 +22,24 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @note = Note.find(params[:id])
+    @note = current_user.notes.find(params[:id])
     render :new
   end
 
   def update
-    @note = Note.find(params[:id])
+    @note = current_user.notes.find(params[:id])
 
     if @note.update_attributes(params[:note])
       redirect_to note_path(@note)
     else
       render :edit
     end
+  end
+
+  def share
+    # TODO decorator
+    @note = current_user.notes.find(params[:id])
+    @note.share(current_user)
+    redirect_to note_path(@note)
   end
 end

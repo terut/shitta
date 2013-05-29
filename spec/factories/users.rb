@@ -15,4 +15,8 @@ FactoryGirl.define do
     password 'test'
     password_confirmation 'test'
   end
+
+  factory :connected_user, parent: :user do
+    after(:create) { |user| create(:service, user_id: user.id) }
+  end
 end

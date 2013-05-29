@@ -14,6 +14,9 @@ Shitta::Application.routes.draw do
 
   resources :users
   resources :notes do
+    member do
+      post :share
+    end
     resources :comments, only: [:index, :create]
   end
 
