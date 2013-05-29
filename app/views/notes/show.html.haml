@@ -5,7 +5,7 @@
     = link_to 'Edit', edit_note_path(@note), class: 'btn btn-block btn-primary btn-large btn-large-font'
     - if current_user.connected?
       -# TODO decorator
-      = link_to 'Share Qitta', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post, confirm: "Share this note with Qiita?"
+      = link_to 'Share Qiita', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post, confirm: "Share this note with Qiita?"
     - else
       = link_to 'Connect Qiita', services_path, class: 'btn btn-block btn-large btn-large-font'
 .note
