@@ -45,7 +45,6 @@ describe Note do
     let(:connected_user) { create(:connected_user) }
     let(:shared_note) { create(:shared_note, user: connected_user) }
     let(:note) { create(:note, user: connected_user) }
-    let(:qiita_response) { { "uuid" => shared_note.uuid } }
     let(:qiita) { mock('qiita', token: '098f6bcd4621d373cade4e832627b4f6') }
     before do
       Qiita.stub(:new) { qiita }
@@ -53,8 +52,8 @@ describe Note do
 
     context 'when values are collect' do
       before do
-        qiita.stub(:post_item).and_return(qiita_response)
-        qiita.stub(:update_item).and_return(qiita_response)
+        qiita.stub(:post_item).and_return({ "uuid" => attributes_for(:shared_note)['uuid'] })
+        qiita.stub(:update_item).and_return({ "uuid" => attributes_for(:shared_note)['uuid'] })
       end
       it { note.share(connected_user).should be_true }
       it { shared_note.share(connected_user).should be_true }
