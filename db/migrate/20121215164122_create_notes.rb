@@ -1,7 +1,6 @@
 class CreateNotes < ActiveRecord::Migration
-  # TODO review e.g. db length
   def change
-    create_table :notes do |t|
+    create_table :notes, options: 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.references :user, null:false
       t.string :title, null: false
       t.string :raw_body, null: false
@@ -9,6 +8,10 @@ class CreateNotes < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :notes, :user_id
+
+    change_table :notes do |t|
+      t.index :user_id
+      t.index :uuid, unique: true
+    end
   end
 end

@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20130504085515) do
   end
 
   add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
+  add_index "notes", ["uuid"], :name => "index_notes_on_uuid", :unique => true
 
   create_table "services", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130504085515) do
     t.datetime "updated_at",      :null => false
   end
 
-  add_index "users", ["username"], :name => "index_users_on_username"
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

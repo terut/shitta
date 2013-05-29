@@ -1,7 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
-  # TODO review db options, e.g. length, unique
   def change
-    create_table :users do |t|
+    create_table :users, options: 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.string :username, null: false
       t.string :password_digest, null: false
       t.string :name, null: false
@@ -12,7 +11,8 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     change_table :users do |t|
-      t.index :username
+      t.index :username, unique: true
+      t.index :email, unique: true
     end
   end
 end
