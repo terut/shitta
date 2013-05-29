@@ -7,6 +7,12 @@ FactoryGirl.define do
     password_confirmation 'ikari'
     name { username }
     bio "逃げちゃダメだ"
+
+    trait :with_connected do
+      after(:create) { |user| create(:service, user_id: user.id) }
+    end
+
+    factory :connected_user, traits: [ :with_connected ]
   end
 
   factory :specify_user, parent: :user do
@@ -14,9 +20,7 @@ FactoryGirl.define do
     email 'test@example.com'
     password 'test'
     password_confirmation 'test'
-  end
 
-  factory :connected_user, parent: :user do
-    after(:create) { |user| create(:service, user_id: user.id) }
+    factory :connected_specify_user, traits: [ :with_connected ]
   end
 end
