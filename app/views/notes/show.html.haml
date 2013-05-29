@@ -5,7 +5,7 @@
     = link_to 'Edit', edit_note_path(@note), class: 'btn btn-block btn-primary btn-large btn-large-font'
     - if current_user.connected?
       -# TODO decorator
-      = link_to 'Share Qiita', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post
+      = link_to 'Share Qitta', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post, confirm: "Share this note with Qiita?"
     - else
       = link_to 'Connect Qiita', services_path, class: 'btn btn-block btn-large btn-large-font'
 .note
@@ -19,7 +19,9 @@
         %div
           = link_to image_tag(comment.user.image_url, class: 'user-img-s'), user_path(comment.user.username)
           = link_to comment.user.name, user_path(comment.user.username)
-        %div.comment_body~ markdown comment.raw_body
+          - if current_user.owner?(comment)
+            = link_to 'Edit', edit_comment_path(comment), class: "comment-options"
+        %div.comment-body~ markdown comment.raw_body
   .div
     = form_for :comment, url: note_comments_path(@note) do |f|
       = f.text_area :raw_body, class: 'input-block-level', placeholder: 'Comment', rows: "3"

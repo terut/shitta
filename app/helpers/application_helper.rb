@@ -3,9 +3,11 @@ module ApplicationHelper
     include Redcarpet::Render::SmartyPants
 
     def block_code(code, language)
-      lang_and_title = language.split(":")
-      language = lang_and_title[0];
-      title = lang_and_title[1];
+      if language
+        lang_and_title = language.split(":")
+        language = lang_and_title[0];
+        title = lang_and_title[1];
+      end
 
       <<-EOS
         <div class="code-container">

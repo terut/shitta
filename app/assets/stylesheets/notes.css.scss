@@ -38,8 +38,11 @@
 }
 .comment {
   @include margin-tbase;
-  .comment_body {
+  .comment-body {
     padding: 10px;
     padding-bottom: 0;
+  }
+  .comment-options {
+    float: right;
   }
 }

@@ -20,7 +20,7 @@ Shitta::Application.routes.draw do
     resources :comments, only: [:index, :create]
   end
 
-  resource :comments, except: [:index, :create]
+  resources :comments, except: [:index, :create]
 
   scope 'settings' do
     resources :services

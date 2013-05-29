@@ -8,7 +8,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment = current_user.comments.find(params[:id])
+  end
 
+  def update
+    @comment = current_user.comments.find(params[:id])
+    if @comment.update_attributes(params[:comment])
+      redirect_to note_path(@comment.note_id)
+    else
+      render :edit
+    end
   end
 
   def destroy

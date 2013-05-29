@@ -1,0 +1,11 @@
+%h1 Edit comment
+- if @comment.errors.any?
+  .errors-message
+    %ul
+    - @comment.errors.full_messages.each do |message|
+      %li= message
+= form_for @comment do |f|
+  = f.text_area :raw_body, class: 'input-block-level', placeholder: 'Comment'
+  %div
+    = f.submit 'Post', class: 'btn btn-large btn-primary'
+    = link_to 'Cancel', note_path(@comment.note_id), class: 'btn btn-large'
