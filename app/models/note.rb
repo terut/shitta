@@ -10,24 +10,28 @@ class Note < ActiveRecord::Base
     return false unless user.connected?
 
     qiita = Qiita.new token: user.service_token
-    item = { title: self.title,
-             body: self.raw_body,
-             #tags: [{ name: 'ruby', versions: %w[1.9.3 2.0.0] }],
-             tags: [{ name: 'ruby' }],
-             private: true }
-    if self.shared?
-      body = qiita.update_item self.uuid, item
+    if shared?
+      body = qiita.update_item self.uuid, shared_items
     else
-      body = qiita.post_item item
+      body = qiita.post_item shared_items
     end
 
     self.uuid = body['uuid']
-    self.save
+    save
   rescue
     false
   end
 
   def shared?
     !!self.uuid
+  end
+
+  private
+  def shared_items
+    { title: self.title,
+      body: self.raw_body,
+      #tags: [{ name: 'ruby', versions: %w[1.9.3 2.0.0] }],
+      tags: [{ name: 'ruby' }],
+      private: true }
   end
 end
