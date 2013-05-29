@@ -1,5 +1,16 @@
 - content_for :sidebar do
-  = link_to 'Post Note', new_note_path, class: 'btn btn-block btn-primary btn-large btn-large-font'
+  %div
+    = link_to 'Post Note', new_note_path, class: 'btn btn-block btn-primary btn-large btn-large-font'
+  %div.margin-t
+    %h3.shadow-line TODO
+    %ul
+      %li user imageがdoara onlyで辛い
+      %li はてなスターのような連打ビリティ
+      %li がんばれデザイン
+      %li helpページ
+      %li previewが必要
+      %li noteの定期な下書き保存
+      %li 僕のやる気
 %h1.title.shadow-line Notes Feed
 %ul.margin-t.media-list
   = render @notes
