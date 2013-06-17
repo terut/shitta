@@ -1,6 +1,7 @@
 - content_for :highlight do
   = stylesheet_link_tag "syntax", :media => "all"
 - content_for :sidebar do
+  %div
   - if current_user.owner?(@note)
     = link_to 'Edit', edit_note_path(@note), class: 'btn btn-block btn-primary btn-large btn-large-font'
     - if current_user.connected?
@@ -8,6 +9,9 @@
       = link_to 'Share Qiita', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post, confirm: "Share this note with Qiita?"
     - else
       = link_to 'Connect Qiita', services_path, class: 'btn btn-block btn-large btn-large-font'
+  %div
+    %h3 Help
+    = link_to 'Qiita Markdown?', "http://qiita.com/items/c686397e4a0f4f11683d", target: '_blank'
 .note
   %h1.shadow-line= @note.title
   ~ markdown @note.raw_body

@@ -1,3 +1,7 @@
+- content_for :sidebar do
+  %div
+    %h3 Help
+    = link_to "Qiita Markdown?", "http://qiita.com/items/c686397e4a0f4f11683d", target: '_blank'
 %h1 Post
 - if @note.errors.any?
   .errors-message
