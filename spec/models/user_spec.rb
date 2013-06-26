@@ -54,8 +54,6 @@ describe User do
     context 'present user' do
       before do
         @user = create(:user)
-        @user.password = nil
-        @user.password_confirmation = nil
       end
 
       context 'email' do

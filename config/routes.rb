@@ -9,7 +9,7 @@ Shitta::Application.routes.draw do
   get 'signup' => 'users#new'
   get 'signout' => 'sessions#destroy'
 
-  root to: 'notes#index', constraints: SignedInConstraint
+  root to: 'notes#index', constraints: SignedInConstraint, as: :authenticated_root
   root to: 'sessions#welcome'
 
   resources :users

@@ -12,7 +12,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = current_user.notes.build(params[:note])
+    @note = current_user.notes.build(note_params)
 
     if @note.save
       redirect_to note_path(@note)
@@ -29,7 +29,7 @@ class NotesController < ApplicationController
   def update
     @note = current_user.notes.find(params[:id])
 
-    if @note.update_attributes(params[:note])
+    if @note.update_attributes(note_params)
       redirect_to note_path(@note)
     else
       render :edit
@@ -41,5 +41,11 @@ class NotesController < ApplicationController
     @note = current_user.notes.find(params[:id])
     @note.share(current_user)
     redirect_to note_path(@note)
+  end
+
+  private
+
+  def note_params
+    params.require(:note).permit(:raw_body, :title)
   end
 end

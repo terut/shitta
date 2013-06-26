@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :name, :email, :bio
 
   has_many :notes
   has_many :services
@@ -8,7 +7,7 @@ class User < ActiveRecord::Base
 
   # TODO review validates and spec
   validates :username, format: { with: /\A[a-z0-9_]+\z/ }, length: { maximum: 20 }, uniqueness: true, on: :create
-  validates :password, confirmation: true, length: { minimum: 4, maximum: 20 }, on: :create
+  validates :password, length: { minimum: 4, maximum: 20 }, on: :create
   validates :email, email: true, uniqueness: true
   validates :name, presence: true, length: { maximum: 20 }
   validates :bio, presence: true, length: { maximum: 400 }, on: :update
