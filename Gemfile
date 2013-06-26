@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '4.0.0'
 gem 'mysql2', '0.3.12b6'
 gem 'haml'
 gem 'turbo-sprockets-rails3'
@@ -11,9 +11,9 @@ gem 'qiita'
 gem 'valid_email'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
@@ -39,7 +39,7 @@ group :development, :test do
   gem 'guard-spork'
   if RUBY_PLATFORM =~ /linux/
     gem 'libnotify'
-    gem 'rb-inotify', '~> 0.8.8'
+    gem 'rb-inotify'
   end
   gem 'debugger'
   gem 'pry-rails'
