@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20130504085515) do
     t.integer  "note_id",    null: false
     t.integer  "user_id",    null: false
     t.text     "raw_body",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "comments", ["note_id"], name: "index_comments_on_note_id", using: :btree
@@ -28,18 +28,20 @@ ActiveRecord::Schema.define(version: 20130504085515) do
     t.integer  "user_id",    null: false
     t.string   "title",      null: false
     t.string   "raw_body",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "uuid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
+  add_index "notes", ["uuid"], name: "index_notes_on_uuid", unique: true, using: :btree
 
   create_table "services", force: true do |t|
     t.integer  "user_id",    null: false
     t.string   "username",   null: false
     t.string   "token",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
@@ -50,10 +52,11 @@ ActiveRecord::Schema.define(version: 20130504085515) do
     t.string   "name",            null: false
     t.string   "email",           null: false
     t.text     "bio"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end

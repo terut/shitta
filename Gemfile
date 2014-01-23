@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
-gem 'mysql2', '0.3.12b6'
+gem 'rails', '4.0.2'
+gem 'mysql2'
 gem 'haml'
 gem 'turbo-sprockets-rails3'
 gem 'redcarpet'
@@ -32,7 +32,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'capybara-webkit'
+  #gem 'capybara-webkit'
+  gem 'poltergeist'
   #gem 'capistrano'
   #gem 'capstrano-ext'
   gem 'guard-rspec'
@@ -41,7 +42,7 @@ group :development, :test do
     gem 'libnotify'
     gem 'rb-inotify'
   end
-  gem 'debugger'
+  gem 'byebug'
   gem 'pry-rails'
-  gem 'pry-debugger'
+  gem 'pry-byebug'
 end
