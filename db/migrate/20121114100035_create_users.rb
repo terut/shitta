@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name, null: false
       t.string :email, null: false
       t.text :bio
+      t.string :reset_token
+      t.timestamp :reset_token_expired_at
 
       t.timestamps
     end

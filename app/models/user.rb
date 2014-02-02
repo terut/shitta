@@ -7,13 +7,39 @@ class User < ActiveRecord::Base
 
   # TODO review validates and spec
   validates :username, format: { with: /\A[a-z0-9_]+\z/ }, length: { maximum: 20 }, uniqueness: true, on: :create
-  validates :password, length: { minimum: 4, maximum: 20 }, on: :create
+  validates :password, length: { minimum: 4, maximum: 20 }, confirmation: true, allow_nil: true
   validates :email, email: true, uniqueness: true
   validates :name, presence: true, length: { maximum: 20 }
-  validates :bio, presence: true, length: { maximum: 400 }, on: :update
+  validates :bio, presence: true, length: { maximum: 400 }, allow_nil: true
+
+  scope :with_reset_token, lambda {|token| where(reset_token: token).where("reset_token_expired_at > ?", Time.now)}
 
   def image_url
     'https://exstamp01.s3-ap-northeast-1.amazonaws.com/uploads/user/image/22/size_120_images.jpg'
+  end
+
+  def save_reset_token
+    while true
+      reset_token = SecureRandom.uuid
+      break unless self.class.exists?(reset_token: reset_token)
+    end
+
+    self.attributes = { reset_token: reset_token,
+                        reset_token_expired_at: 24.hours.since }
+    self.save(validate: false)
+  end
+
+  # TODO rspec
+  def reset_password(password, password_confirmation)
+    self.attributes = { password: password,
+                        password_confirmation: password_confirmation }
+    if self.valid?
+      self.attributes = { reset_token: nil,
+                          reset_token_expired_at: nil }
+      self.save
+    else
+      return false
+    end
   end
 
   # TODO rspec
