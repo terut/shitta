@@ -65,6 +65,16 @@ describe User do
     end
   end
 
+  describe '#save_reset_token' do
+    before do
+      @user = create(:user)
+      @user.save_reset_token
+    end
+
+    it { @user.reset_token.should_not be_nil }
+    it { @user.reset_token_expired_at.should_not be_nil }
+  end
+
   describe '#owner?' do
     let(:user) { create(:user) }
     let(:owner_note) { create(:note, user: user) }

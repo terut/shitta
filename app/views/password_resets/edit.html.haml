@@ -1,0 +1,13 @@
+.row-fluid.margin-t
+  - unless flash.alert.blank?
+    .alert.alert-error= flash.alert
+  - unless flash.notice.blank?
+    .alert.alert-success= flash.notice
+  .span4.offset4
+    = form_tag password_reset_path(@user.reset_token), method: :put do
+      %h1 Reset password
+      = text_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
+      = text_field_tag :password_confirmation, params[:password_confirmation], class: 'input-midium', placeholder: 'Confirmation'
+      %div.margin-t
+        = submit_tag 'Submit', class: 'btn btn-large btn-primary'
+        = link_to 'Cancel', signin_path, class: 'btn btn-large'

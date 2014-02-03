@@ -47,11 +47,13 @@ ActiveRecord::Schema.define(version: 20130504085515) do
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "name",            null: false
-    t.string   "email",           null: false
+    t.string   "username",               null: false
+    t.string   "password_digest",        null: false
+    t.string   "name",                   null: false
+    t.string   "email",                  null: false
     t.text     "bio"
+    t.string   "reset_token"
+    t.datetime "reset_token_expired_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

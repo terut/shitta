@@ -25,5 +25,16 @@ Shitta::Application.routes.draw do
   scope 'settings' do
     resources :services
   end
+
   resources :sessions
+#  resources :sessions do
+#    collection do
+#      get 'forgot_password' => 'password_resets#new'
+#      post 'forgot_password' => 'password_resets#create'
+#      get 'reset_password/:token' => 'password_resets#edit'
+#      put 'reset_password/:token' => 'password_reset#update'
+#    end
+#  end
+
+  resources :password_resets
 end
