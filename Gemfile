@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'mysql2'
 gem 'haml'
-gem 'turbo-sprockets-rails3'
 gem 'redcarpet'
 gem 'pygments.rb'
 

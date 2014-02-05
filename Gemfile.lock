@@ -136,7 +136,7 @@ GEM
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    qiita (0.0.3)
+    qiita (0.0.2)
       faraday (~> 0.8)
       faraday_middleware (~> 0.8)
       hashie (~> 1.2)
@@ -211,9 +211,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbo-sprockets-rails3 (0.2.9)
-      railties (>= 3.1.0)
-      sprockets (>= 2.0.0)
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -258,7 +255,6 @@ DEPENDENCIES
   sass-rails
   therubyracer
   thin
-  turbo-sprockets-rails3
   uglifier
   unicorn
   valid_email
