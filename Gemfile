@@ -9,12 +9,9 @@ gem 'pygments.rb'
 gem 'qiita'
 gem 'valid_email'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'therubyracer'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
@@ -29,6 +26,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'therubyracer'
   gem 'haml-rails'
   gem 'thin'
   gem 'rspec-rails'
