@@ -19,6 +19,8 @@ end
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
 
+gem 'dotenv-rails'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
@@ -34,8 +36,6 @@ group :development, :test do
   gem 'capybara'
   #gem 'capybara-webkit'
   gem 'poltergeist'
-  #gem 'capistrano'
-  #gem 'capstrano-ext'
   gem 'guard-rspec'
   gem 'guard-spork'
   if RUBY_PLATFORM =~ /linux/
