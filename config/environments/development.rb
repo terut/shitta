@@ -13,14 +13,14 @@ Shitta::Application.configure do
   # Don't care if the mailer can't send
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV["SHITTA_MAIL_HOST"], port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'example.com',
-    user_name: 'hoge',
-    password: 'hoge',
+    address: ENV['SHITTA_SMTP_URL'],
+    port: ENV['SHITTA_SMTP_PORT'],
+    domain: ENV['SHITTA_SMTP_DOMAIN'],
+    user_name: ENV['SHITTA_SMTP_USER'],
+    password: ENV['SHITTA_SMTP_PASSWORD'],
     authentication: 'plain',
     enable_starttls_auto: true
   }

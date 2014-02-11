@@ -16,9 +16,9 @@ development: &default
   reconnect: false
   database: shitta_development
   pool: 5
-  username: root
-  password: root
-  host: localhost
+  username: <%= ENV['SHITTA_DATABASE_USER'] %>
+  password: <%= ENV['SHITTA_DATABASE_PASSWORD'] %>
+  host: <%= ENV['SHITTA_DATABASE_URL'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -30,6 +30,6 @@ test:
 production:
   <<: *default
   database: shitta_production
-  username: root
-  password: root
-  host: localhost
+  username: <%= ENV['SHITTA_DATABASE_USER'] %>
+  password: <%= ENV['SHITTA_DATABASE_PASSWORD'] %>
+  host: <%= ENV['SHITTA_DATABASE_URL'] %>

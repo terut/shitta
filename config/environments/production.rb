@@ -7,7 +7,17 @@ Shitta::Application.configure do
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
-
+  config.action_mailer.default_url_options = { host: ENV["SHITTA_MAIL_HOST"] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['SHITTA_SMTP_URL'],
+    port: ENV['SHITTA_SMTP_PORT'],
+    domain: ENV['SHITTA_SMTP_DOMAIN'],
+    user_name: ENV['SHITTA_SMTP_USER'],
+    password: ENV['SHITTA_SMTP_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
