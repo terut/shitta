@@ -1,6 +1,6 @@
 worker_processes 2
 
-working_directory "/var/www/vhosts/shitta"
+working_directory "/var/www/vhosts/shitta/current"
 
 listen '/tmp/unicorn_of_shitta.sock'
 
