@@ -12,6 +12,7 @@ gem 'valid_email'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'therubyracer'
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
@@ -26,7 +27,6 @@ group :production do
 end
 
 group :development, :test do
-  gem 'therubyracer'
   gem 'haml-rails'
   gem 'thin'
   gem 'rspec-rails'
