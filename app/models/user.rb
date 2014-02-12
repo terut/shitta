@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   scope :with_reset_token, lambda {|token| where(reset_token: token).where("reset_token_expired_at > ?", Time.now)}
 
   def image_url
-    '/user_default.jpg'
+    '/images/user_default.jpg'
   end
 
   def save_reset_token
