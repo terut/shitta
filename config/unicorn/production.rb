@@ -3,6 +3,7 @@ worker_processes 2
 working_directory "/var/www/vhosts/shitta/current"
 
 listen '/tmp/unicorn_of_shitta.sock'
+pid 'tmp/pids/unicorn.pid'
 
 stderr_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
 stdout_path File.expand_path('log/unicorn.log', ENV['RAILS_ROOT'])
