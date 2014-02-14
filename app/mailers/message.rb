@@ -1,5 +1,6 @@
 class Message < ActionMailer::Base
-  default from: "noreply@shitta.terut.net"
+  default from: "noreply@shitta.terut.net",
+          return_path: "noreply@shitta.terut.net"
 
   def forgot_password(user)
     @user = user
