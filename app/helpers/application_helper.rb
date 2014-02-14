@@ -5,7 +5,7 @@ module ApplicationHelper
     def block_code(code, language)
       if language
         lang_and_title = language.split(":")
-        language = lang_and_title[0];
+        language = find_language(lang_and_title[0])
         title = lang_and_title[1];
       end
 
@@ -21,6 +21,16 @@ module ApplicationHelper
       Pygments.highlight(code,
                          lexer: language,
                          options: { linenos: true, encoding: 'utf-8'})
+    end
+
+    private
+    def find_language(lang)
+      lexer = Pygments::Lexer.find(lang)
+      unless lexer.blank?
+        lexer.aliases.first
+      else
+        ""
+      end
     end
   end
 
