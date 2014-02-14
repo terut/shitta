@@ -75,6 +75,32 @@ describe User do
     it { @user.reset_token_expired_at.should_not be_nil }
   end
 
+  describe '#reset_password' do
+    before do
+      @user = create(:reset_token_user)
+    end
+
+    context 'when password is valid' do
+      it { @user.reset_password("aaaa", "aaaa").should be_true }
+      it 'reset_token and reset_token_expired_at is null after reset_password' do
+        @user.reset_password("aaaa", "aaaa")
+        @user.reload
+        @user.reset_token.should be_nil
+        @user.reset_token_expired_at.should be_nil
+      end
+    end
+
+    context 'when password is invalid' do
+      it { @user.reset_password("bbbb", "bbb").should be_false }
+      it 'reset_token and reset_token_expired_at is not null after reset_password' do
+        @user.reset_password("bbb", "bbb")
+        @user.reload
+        @user.reset_token.should_not be_blank
+        @user.reset_token.should_not be_blank
+      end
+    end
+  end
+
   describe '#owner?' do
     let(:user) { create(:user) }
     let(:owner_note) { create(:note, user: user) }

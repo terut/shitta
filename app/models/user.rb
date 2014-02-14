@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
     self.save(validate: false)
   end
 
-  # TODO rspec
   def reset_password(password, password_confirmation)
     self.attributes = { password: password,
                         password_confirmation: password_confirmation }
@@ -42,7 +41,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # TODO rspec
   def owner?(model)
     return false unless model.respond_to?(:user_id)
 
