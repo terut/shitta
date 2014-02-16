@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20130504085515) do
   create_table "notes", force: true do |t|
     t.integer  "user_id",    null: false
     t.string   "title",      null: false
-    t.string   "raw_body",   null: false
+    t.text     "raw_body",   null: false
     t.string   "uuid"
     t.datetime "created_at"
     t.datetime "updated_at"

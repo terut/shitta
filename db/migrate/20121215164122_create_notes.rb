@@ -3,7 +3,7 @@ class CreateNotes < ActiveRecord::Migration
     create_table :notes, options: 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.references :user, null:false
       t.string :title, null: false
-      t.string :raw_body, null: false
+      t.text :raw_body, null: false
       t.string :uuid
 
       t.timestamps
