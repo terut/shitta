@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem 'mysql2'
 gem 'haml'
-gem 'redcarpet'
+gem 'redcarpet', '3.0.0'
 gem 'pygments.rb'
 
 gem 'qiita'
