@@ -5,6 +5,8 @@ class Note < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 250 }
   validates :raw_body, presence: true
 
+  scope :latest, lambda { order(created_at: :desc) }
+
   def share(user)
     return false unless user.connected?
 

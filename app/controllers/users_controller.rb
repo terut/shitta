@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   helper_method :user
 
   def show
-    @notes = user.notes
+    @notes = user.notes.latest.page(params[:page])
   end
 
   def new
