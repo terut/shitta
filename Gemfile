@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'haml'
 gem 'redcarpet', '3.0.0'
 gem 'pygments.rb'
+gem 'kaminari'
 
 gem 'qiita'
 gem 'valid_email'
