@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
 
   scope :with_reset_token, lambda {|token| where(reset_token: token).where("reset_token_expired_at > ?", Time.now)}
 
-  def image_url
-    '/images/user_default.jpg'
-  end
+  before_validation :clear_empty
+
+  mount_uploader :avatar, AvatarUploader
 
   def save_reset_token
     while true
@@ -55,5 +55,10 @@ class User < ActiveRecord::Base
     return nil unless connected?
 
     self.services.first.token
+  end
+
+  private
+  def clear_empty
+    self.bio = nil if self.bio.blank?
   end
 end

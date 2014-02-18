@@ -1,0 +1,10 @@
+%h1.title.shadow-line Profile
+= render partial: "errors", object: user, as: :model
+.span5.offset3
+  = form_for user, url: user_path(user.username), html: { multipart: true } do |f|
+    = f.text_field :email, class: 'input-midium', placeholder: 'Email'
+    = f.file_field :avatar, class: 'input-midium', placeholder: 'Avatar'
+    = f.hidden_field :avatar_cache
+    = f.text_area :bio, class: 'input-midium margin-t', placeholder: 'Bio'
+    %div
+    = f.submit 'Update', class: 'btn btn-large btn-primary'

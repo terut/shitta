@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :require_signin, only: [:new, :create]
+  before_filter :require_own, only: [:edit, :update]
 
   layout 'application', only: [:new, :create]
 
@@ -27,14 +28,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    if user.update_attributes(user_params)
+      redirect_to edit_user_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def user
     @user ||= User.find_by_username!(params[:id])
   end
 
+  def current_user?
+    current_user.id == user.id
+  end
+
+  def require_own
+    unless current_user?
+      redirect_to root_path
+    end
+  end
+
   def user_params
-    params.require(:user).permit(:name, :email, :bio)
+    params.require(:user).permit(:name, :email, :bio, :avatar, :avatar_cache)
   end
 
   def registration_params
