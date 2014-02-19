@@ -1,3 +1,21 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+class ShittaFav
+  constructor: ($element) ->
+    @favs = []
+    @timer
+    @element = $element
+    console.log $element
+  favorite: () ->
+    clearTimeout(@timer)
+    @favs.push("")
+    favs = @favs
+    hoge = ->
+      console.log 'ajax' + favs.length
+    @timer = setTimeout hoge,1000
+
+$ ->
+  $ele = $('#fav')
+  if ($ele)
+    fav = new ShittaFav @
+
+  $ele.click ->
+    fav.favorite()
