@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_signin, only: [:new, :create]
   before_filter :require_own, only: [:edit, :update]
 
-  layout 'application', only: [:new, :create]
+  layout 'settings', only: [:edit, :update]
 
   helper_method :user
 
@@ -10,8 +10,10 @@ class UsersController < ApplicationController
     @notes = user.notes.latest.page(params[:page])
   end
 
+  # refactor layout
   def new
     @user = User.new
+    render layout: 'application'
   end
 
   def create
@@ -24,7 +26,7 @@ class UsersController < ApplicationController
     else
       # TODO rails 4.0 remove password_digest validation
       @user.errors.messages.delete(:password_digest)
-      render :new
+      render :new, layout: 'application'
     end
   end
 
