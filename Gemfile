@@ -6,6 +6,8 @@ gem 'haml'
 gem 'redcarpet', '3.0.0'
 gem 'pygments.rb'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'qiita'
 gem 'valid_email'

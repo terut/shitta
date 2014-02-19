@@ -21,7 +21,7 @@
     - @note.comments.each do |comment|
       %li.comment
         %div
-          = link_to image_tag(comment.user.image_url, class: 'user-img-s'), user_path(comment.user.username)
+          = link_to image_tag(comment.user.avatar_url, class: 'user-img-s'), user_path(comment.user.username)
           = link_to comment.user.name, user_path(comment.user.username)
           - if current_user.owner?(comment)
             = link_to 'Edit', edit_comment_path(comment), class: "comment-options"

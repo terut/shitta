@@ -12,7 +12,7 @@ Shitta::Application.routes.draw do
   root to: 'notes#index', constraints: SignedInConstraint, as: :authenticated_root
   root to: 'sessions#welcome'
 
-  resources :users
+  resources :users, only: [:show]
   resources :notes do
     member do
       post :share
@@ -24,6 +24,9 @@ Shitta::Application.routes.draw do
 
   scope 'settings' do
     resources :services
+    get 'account' => 'users#edit'
+    patch 'account' => 'users#update'
+    put 'account' => 'users#update'
   end
 
   resources :sessions

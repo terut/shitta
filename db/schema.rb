@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130504085515) do
+ActiveRecord::Schema.define(version: 20140218155719) do
 
   create_table "comments", force: true do |t|
     t.integer  "note_id",    null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20130504085515) do
     t.datetime "reset_token_expired_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

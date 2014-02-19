@@ -2,8 +2,11 @@
   .row-fluid.margin-t
     #sidebar.span3
       .row-fluid
-        = image_tag current_user.image_url, class: 'margin-bm' 
+        = image_tag current_user.avatar_url, class: 'margin-bm'
         %p.profile-username= current_user.username
+        %ul.nav.nav-tabs.nav-stacked.margin-t
+          %li= link_to "Account", account_path
+          %li= link_to "Services", services_path
     #main.span9
       .row-fluid
         = yield
