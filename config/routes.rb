@@ -12,7 +12,7 @@ Shitta::Application.routes.draw do
   root to: 'notes#index', constraints: SignedInConstraint, as: :authenticated_root
   root to: 'sessions#welcome'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :create]
   resources :notes do
     member do
       post :share
