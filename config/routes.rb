@@ -24,9 +24,9 @@ Shitta::Application.routes.draw do
 
   scope 'settings' do
     resources :services
-    get 'profile' => 'users#edit'
-    patch 'profile' => 'users#update'
-    put 'profile' => 'users#update'
+    get 'account' => 'users#edit'
+    patch 'account' => 'users#update'
+    put 'account' => 'users#update'
   end
 
   resources :sessions

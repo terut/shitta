@@ -1,8 +1,7 @@
-%h1.title.shadow-line Connection Settings
+%h1.title.shadow-line Connect Qiita Account
 - if @services.blank?   
   .span5.offset3
     = form_tag services_path do
-      %h3 Connect Qiita Account
       = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
       = password_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
       %div

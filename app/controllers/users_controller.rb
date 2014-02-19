@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     if user.update_attributes(user_params)
-      redirect_to profile_path
+      redirect_to account_path
     else
       render :edit
     end

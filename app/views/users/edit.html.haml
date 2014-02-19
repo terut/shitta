@@ -1,7 +1,7 @@
-%h1.title.shadow-line Profile
+%h1.title.shadow-line Account
 = render partial: "errors", object: user, as: :model
 .span5.offset3
-  = form_for user, url: profile_path, html: { multipart: true } do |f|
+  = form_for user, url: account_path, html: { multipart: true } do |f|
     = f.text_field :email, class: 'input-midium', placeholder: 'Email'
     = f.file_field :avatar, class: 'input-midium', placeholder: 'Avatar'
     = f.hidden_field :avatar_cache
