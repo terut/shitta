@@ -1,3 +1,4 @@
+# TODO accountsController
 class UsersController < ApplicationController
   skip_before_filter :require_signin, only: [:new, :create]
   before_filter :require_own, only: [:edit, :update]
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
     @notes = user.notes.latest.page(params[:page])
   end
 
-  # refactor layout
+  # TODO refactor layout
   def new
     @user = User.new
     render layout: 'application'
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     if user.update_attributes(user_params)
-      redirect_to edit_user_path
+      redirect_to profile_path
     else
       render :edit
     end
@@ -41,6 +42,7 @@ class UsersController < ApplicationController
   private
 
   def user
+    params[:id] ||= current_user.username
     @user ||= User.find_by_username!(params[:id])
   end
 
