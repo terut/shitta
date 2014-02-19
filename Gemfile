@@ -39,10 +39,10 @@ group :development, :test do
   gem 'poltergeist'
   gem 'guard-rspec'
   gem 'guard-spork'
-  if RUBY_PLATFORM =~ /linux/
-    gem 'libnotify'
-    gem 'rb-inotify'
-  end
+  #if RUBY_PLATFORM =~ /linux/
+  #  gem 'libnotify'
+  #  gem 'rb-inotify'
+  #end
   gem 'byebug'
   gem 'pry-rails'
   gem 'pry-byebug'
