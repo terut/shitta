@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :services
   has_many :comments
+  has_many :favorites
+  has_many :favorite_notes, through: :favorites
 
   # TODO review validates and spec
   validates :username, format: { with: /\A[a-z0-9_]+\z/ }, length: { maximum: 20 }, uniqueness: true, on: :create

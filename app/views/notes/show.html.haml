@@ -2,18 +2,31 @@
   = stylesheet_link_tag "syntax", :media => "all"
 - content_for :sidebar do
   %div
-  - if current_user.owner?(@note)
-    = link_to 'Edit', edit_note_path(@note), class: 'btn btn-block btn-primary btn-large btn-large-font'
-    - if current_user.connected?
-      -# TODO decorator
-      = link_to 'Share Qiita', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post, data: { confirm: "Share this note with Qiita?" }
-    - else
-      = link_to 'Connect Qiita', services_path, class: 'btn btn-block btn-large btn-large-font'
+    - if current_user.owner?(@note)
+      = link_to 'Edit', edit_note_path(@note), class: 'btn btn-block btn-primary btn-large btn-large-font'
+      - if current_user.connected?
+        -# TODO decorator
+        = link_to 'Share Qiita', share_note_path(@note), class: 'btn btn-block btn-large btn-large-font', method: :post, data: { confirm: "Share this note with Qiita?" }
+      - else
+        = link_to 'Connect Qiita', services_path, class: 'btn btn-block btn-large btn-large-font'
+    = link_to 'Awesome! Awesome!!', '#', id: 'fav', data: { note_id: @note.id }, class: 'btn btn-block btn-large btn-large-font'
+  %div
+    %h3 We say "Awesome!!"
+    %div#dummy_favorited
+      %span.favorited-user
+        = link_to image_tag(current_user.avatar_url, class: 'user-img-s'), user_path(current_user.username)
+    %div#favorited.margin-t
+      -# TODO refactoring
+      - @note.favorites.each do |fav|
+        %span.favorited-user
+          = link_to image_tag(fav.user.avatar_url, class: 'user-img-s'), user_path(fav.user.username)
+          - if fav.point > 1
+            %span.favorite-point= fav.point
   %div
     %h3 Help
     = link_to 'Qiita Markdown?', "http://qiita.com/items/c686397e4a0f4f11683d", target: '_blank'
 .note
-  %h1#fav.shadow-line= @note.title
+  %h1.shadow-line= @note.title
   ~ markdown @note.raw_body
 .comments
   %h3.shadow-line Comments

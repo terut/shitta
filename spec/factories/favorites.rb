@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :favorite do
-    user nil
-    note nil
+    association :user, factory: :user
+    association :note, factory: :note
     point 1
   end
 end

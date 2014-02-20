@@ -8,14 +8,31 @@ class ShittaFav
     clearTimeout(@timer)
     @favs.push("")
     favs = @favs
+    element = @element
+    html = $('#dummy_favorited').clone(true).html()
+    $('#favorited').append html
+
     hoge = ->
       console.log 'ajax' + favs.length
-    @timer = setTimeout hoge,1000
+      note_id = $(element).data('note-id')
+      console.log element
+      console.log note_id
+
+      $.ajax({
+        type: 'POST'
+        url: '/notes/' + note_id + '/favorites'
+        data: { 'point': favs.length }
+      }).done ->
+           console.log 'request success'
+        .fail ->
+           console.log 'request error'
+
+    @timer = setTimeout hoge,700
 
 $ ->
   $ele = $('#fav')
   if ($ele)
-    fav = new ShittaFav @
+    fav = new ShittaFav $ele
 
   $ele.click ->
     fav.favorite()
