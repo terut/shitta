@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140218155719) do
+ActiveRecord::Schema.define(version: 20140220163311) do
 
   create_table "comments", force: true do |t|
     t.integer  "note_id",    null: false
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20140218155719) do
 
   add_index "comments", ["note_id"], name: "index_comments_on_note_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "favorites", force: true do |t|
+    t.integer  "user_id",                null: false
+    t.integer  "note_id",                null: false
+    t.integer  "point",      default: 1, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorites", ["note_id"], name: "index_favorites_on_note_id", using: :btree
+  add_index "favorites", ["user_id", "note_id"], name: "index_favorites_on_user_id_and_note_id", unique: true, using: :btree
 
   create_table "notes", force: true do |t|
     t.integer  "user_id",    null: false
