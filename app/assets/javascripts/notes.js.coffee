@@ -1,3 +1,38 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+class ShittaFav
+  constructor: ($element) ->
+    @favs = []
+    @timer
+    @element = $element
+    console.log $element
+  favorite: () ->
+    clearTimeout(@timer)
+    @favs.push("")
+    favs = @favs
+    element = @element
+    html = $('#dummy_favorited').clone(true).html()
+    $('#favorited').append html
+
+    hoge = ->
+      console.log 'ajax' + favs.length
+      note_id = $(element).data('note-id')
+      console.log element
+      console.log note_id
+
+      $.ajax({
+        type: 'POST'
+        url: '/notes/' + note_id + '/favorites'
+        data: { 'point': favs.length }
+      }).done ->
+           console.log 'request success'
+        .fail ->
+           console.log 'request error'
+
+    @timer = setTimeout hoge,700
+
+$ ->
+  $ele = $('#fav')
+  if ($ele)
+    fav = new ShittaFav $ele
+
+  $ele.click ->
+    fav.favorite()

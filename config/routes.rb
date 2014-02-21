@@ -5,6 +5,7 @@ class SignedInConstraint
 end
 
 Shitta::Application.routes.draw do
+
   get 'signin' => 'sessions#new'
   get 'signup' => 'users#new'
   get 'signout' => 'sessions#destroy'
@@ -18,6 +19,7 @@ Shitta::Application.routes.draw do
       post :share
     end
     resources :comments, only: [:index, :create]
+    resources :favorites, only: [:create, :destroy]
   end
 
   resources :comments, except: [:index, :create]

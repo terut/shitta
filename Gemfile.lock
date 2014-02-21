@@ -151,7 +151,7 @@ GEM
     pygments.rb (0.5.4)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    qiita (0.0.2)
+    qiita (0.0.3)
       faraday (~> 0.8)
       faraday_middleware (~> 0.8)
       hashie (~> 1.2)
@@ -266,7 +266,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   pygments.rb
-  qiita
+  qiita (~> 0.0.3)
   rails (= 4.0.2)
   redcarpet (= 3.0.0)
   rspec-rails
