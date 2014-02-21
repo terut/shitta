@@ -3,7 +3,6 @@ class ShittaFav
     @favs = []
     @timer
     @element = $element
-    console.log $element
   favorite: () ->
     clearTimeout(@timer)
     @favs.push("")
@@ -15,14 +14,13 @@ class ShittaFav
     hoge = ->
       console.log 'ajax' + favs.length
       note_id = $(element).data('note-id')
-      console.log element
-      console.log note_id
 
       $.ajax({
         type: 'POST'
         url: '/notes/' + note_id + '/favorites'
         data: { 'point': favs.length }
       }).done ->
+           favs.length = 0
            console.log 'request success'
         .fail ->
            console.log 'request error'
