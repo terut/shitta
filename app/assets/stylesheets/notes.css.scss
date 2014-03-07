@@ -58,13 +58,15 @@
 }
 .favorited-user {
   position: relative;
+  display:inline-block;
   margin-right: 3px;
   margin-bottom: 3px;
   width: 28px;
-  border: 3px solid #df769c;
+  height: 28px;
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px;
   border-radius: 80px;
+  border: 3px solid #df769c;
   overflow: hidden;
   img {
     -webkit-border-radius: 75px;
@@ -80,8 +82,8 @@
     color: #efefef;
     text-align: center;
     padding: 0;
-    line-height: 0.9em;
-    font-size: 3px;
+    line-height: 1.2em;
+    font-size: 8px;
   }
 }
 
