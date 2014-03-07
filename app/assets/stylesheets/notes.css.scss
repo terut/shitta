@@ -9,6 +9,11 @@
   line-height: 25px;
   font-size: 25px;
 }
+#new_note {
+  textarea {
+    height: 500px;
+  }
+}
 .code-container {
   border: 1px solid #ccc;
   margin: 0 0 10px;
