@@ -12,7 +12,7 @@ module ApplicationHelper
       <<-EOS
         <div class="code-container">
           <div class="code-title">#{title.to_s}</div>
-          #{highlight(code, language)}
+          <div class="code-main">#{highlight(code, language)}</div>
         </div>
       EOS
     end

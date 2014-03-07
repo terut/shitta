@@ -48,6 +48,7 @@
 }
 body {
   background: $white url(image-path('bg.png')) repeat;
+  //font: 13.34px Helvetica, arial, freesans, clean, sans-serif;
 }
 h1 {
   font-size: 32px;
@@ -63,6 +64,9 @@ h3 {
   margin: 0 auto;
   margin-top: 40px;
   line-height: 1.7em;
+}
+#main {
+  overflow: hidden;
 }
 .brand {
   @include webfont-bold;

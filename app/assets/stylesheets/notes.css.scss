@@ -20,21 +20,28 @@
     color: #f7f7f7;
     background-image: url(image-path('bg2.png'));
   }
+  .code-main {
+    overflow: auto;
+  }
   pre {
     margin: 0 0;
     border: none;
+    white-space: pre;
   }
   .linenos {
     border-right: 1px solid #ccc;
     background-color: #f5f5f5;
   }
-  .linenos pre, {
+  .linenos pre {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
     word-break: normal;
     border-radius: 0px;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
   }
   .code {
+    font: 12px Consolas, "Liberation Mono", Courier, monospace;
     width: 100%;
     background-color: #f5f5f5;
   }
