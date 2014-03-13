@@ -9,9 +9,20 @@
   line-height: 25px;
   font-size: 25px;
 }
-#new_note {
-  textarea {
+textarea#note_raw_body {
     height: 500px;
+}
+.note, .comment {
+  font-size: 15px;
+  line-height: 1.7;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0 15px;
+  }
+  p {
+    margin: 15px 0;
+  }
+  li {
+    line-height: 1.7;
   }
 }
 .code-container {
