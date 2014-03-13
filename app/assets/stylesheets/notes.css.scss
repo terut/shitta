@@ -12,7 +12,7 @@
 textarea#note_raw_body {
     height: 500px;
 }
-.note, .comment {
+.note, .comments {
   font-size: 15px;
   line-height: 1.7;
   h1, h2, h3, h4, h5, h6 {
@@ -23,6 +23,10 @@ textarea#note_raw_body {
   }
   li {
     line-height: 1.7;
+  }
+  ul ul, ul ol, ol ul, ol ol {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 }
 .code-container {
@@ -65,7 +69,7 @@ textarea#note_raw_body {
 .comment {
   @include margin-tbase;
   .comment-body {
-    padding: 10px;
+    padding: 0 10px;
     padding-bottom: 0;
   }
   .comment-options {
