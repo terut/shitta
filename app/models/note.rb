@@ -1,4 +1,6 @@
 class Note < ActiveRecord::Base
+  include Notifier
+
   belongs_to :user
   has_many :comments
   has_many :favorites
@@ -8,6 +10,10 @@ class Note < ActiveRecord::Base
   validates :raw_body, presence: true
 
   scope :latest, lambda { order(created_at: :desc) }
+
+  after_create do
+    post_notify(self)
+  end
 
   def share(user)
     return false unless user.connected?

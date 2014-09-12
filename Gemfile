@@ -16,6 +16,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'therubyracer'
+gem 'hipchat'
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
