@@ -20,7 +20,7 @@ module Notifier
 
   private
   def notify(message)
-    client[room].send('shitta', message, color: 'green', notify: true)
+    client[room].send('shitta', message, color: 'green', notify: true, message_format: 'text')
   end
 
   def default_url_options
