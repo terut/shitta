@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.6'
 gem 'mysql2'
 gem 'haml'
-gem 'redcarpet', '3.0.0'
+gem 'redcarpet'
 gem 'pygments.rb'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'qiita', '~> 0.0.3'
-gem 'valid_email'
 
 gem 'sass-rails'
 gem 'coffee-rails'
@@ -38,12 +37,8 @@ group :development, :test do
   gem 'capybara'
   #gem 'capybara-webkit'
   gem 'poltergeist'
-  gem 'guard-rspec'
-  gem 'guard-spork'
-  #if RUBY_PLATFORM =~ /linux/
-  #  gem 'libnotify'
-  #  gem 'rb-inotify'
-  #end
+  gem 'spring'
+  gem 'spring-commands-rspec'
   gem 'byebug'
   gem 'pry-rails'
   gem 'pry-byebug'

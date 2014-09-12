@@ -1,52 +1,35 @@
-require 'rubygems'
-require 'spork'
-
-Spork.prefork do
-  ENV["RAILS_ENV"] ||= 'test'
-  require File.expand_path("../../config/environment", __FILE__)
-  require 'rspec/rails'
-  require 'rspec/autorun'
-  require 'capybara/rails'
-
-  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-
-  RSpec.configure do |config|
-    config.include FactoryGirl::Syntax::Methods
-
-    config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-    config.use_transactional_fixtures = true
-
-    config.infer_base_class_for_anonymous_controllers = true
-
-    config.order = "random"
-
-    #pid = 0
-    config.before(:suite) do
-      #cmd = "afplay ~/Music/ff5_2_03_bigbridge.mp3"
-      #pid = Process.spawn(cmd, err: '/dev/null')
-    end
-
-    config.after(:suite) do
-      #Process.kill("QUIT", pid)
-      #cmd = "afplay ~/Music/ff6_1_06_fanfare.mp3"
-      #pid = Process.spawn(cmd, err: '/dev/null')
-      #sleep 5
-      #Process.kill("HUP", pid)
-    end
+RSpec.configure do |config|
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
-  class ActiveRecord::Base
-    mattr_accessor :shared_connection
-    @@shared_connection = nil
-
-    def self.connection
-      @@shared_connection || retrieve_connection
-    end
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
   end
-end
 
-Spork.each_run do
-  FactoryGirl.reload
-  ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+
+  #config.infer_base_class_for_anonymous_controllers = false
+
+  # Limits the available syntax to the non-monkey patched syntax that is recommended.
+  # For more details, see:
+  #   - http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax
+  #   - http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
+  #   - http://myronmars.to/n/dev-blog/2014/05/notable-changes-in-rspec-3#new__config_option_to_disable_rspeccore_monkey_patching
+  config.disable_monkey_patching!
+
+  if config.files_to_run.one?
+    config.default_formatter = 'doc'
+  end
+
+  config.profile_examples = 10
+
+  config.order = :random
+
+  # Seed global randomization in this process using the `--seed` CLI option.
+  # Setting this allows you to use `--seed` to deterministically reproduce
+  # test failures related to randomization by passing the same `--seed` value
+  # as the one that triggered the failure.
+  Kernel.srand config.seed
 end

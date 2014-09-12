@@ -1,4 +1,4 @@
-shared_context 'login_flow' do
+RSpec.shared_context 'login_flow' do
   before do
     visit '/signin'
     fill_in 'username', with: current_user.username
@@ -7,12 +7,12 @@ shared_context 'login_flow' do
   end
 end
 
-shared_context 'login' do
+RSpec.shared_context 'login' do
   let(:current_user) { create(:specify_user) }
   include_context 'login_flow'
 end
 
-shared_context 'login_connected_user' do
+RSpec.shared_context 'login_connected_user' do
   let(:current_user) { create(:connected_specify_user) }
   include_context 'login_flow'
 end

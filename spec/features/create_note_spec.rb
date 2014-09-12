@@ -1,7 +1,10 @@
-# coding: utf-8
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'create note' do
+RSpec.describe 'create note' do
+  before do
+    allow_any_instance_of(Note).to receive(:post_notify)
+  end
+
   context 'create' do
     include_context 'login'
 
@@ -10,14 +13,14 @@ describe 'create note' do
 
       click_link 'Post Note'
 
-      current_path.should == new_note_path
+      expect(current_path).to eql new_note_path
 
       fill_in 'note_title', with: 'aaa'
       fill_in 'note_raw_body', with: "# h1タグです\n## h2タグです"
 
       click_button 'Post'
 
-      page.should have_content 'aaa'
+      expect(page).to have_content 'aaa'
     end
   end
 end

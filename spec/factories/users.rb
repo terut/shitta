@@ -1,4 +1,3 @@
-# coding: utf-8
 FactoryGirl.define do
   factory :user do
     sequence(:username) {|n| "ikari#{n}"}

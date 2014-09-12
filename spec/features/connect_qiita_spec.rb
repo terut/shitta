@@ -1,12 +1,11 @@
-# coding: utf-8
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'connect qiita' do
+RSpec.describe 'connect qiita' do
   context 'qiita use is collect' do
     include_context 'login'
 
     before do
-      Qiita.stub(:new) { double('qiita', url_name: 'test', token: '098f6bcd4621d373cade4e832627b4f6') }
+      allow(Qiita).to receive(:new) { double('qiita', url_name: 'test', token: '098f6bcd4621d373cade4e832627b4f6') }
     end
 
     it 'connect and disconnect' do
@@ -17,11 +16,11 @@ describe 'connect qiita' do
 
       click_button 'Connect'
 
-      page.should have_content 'Disconnect'
+      expect(page).to have_content 'Disconnect'
 
       click_link 'Disconnect'
 
-      page.should have_content 'Connect Qiita Account'
+      expect(page).to have_content 'Connect Qiita Account'
     end
   end
 end

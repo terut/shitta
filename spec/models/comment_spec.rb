@@ -1,16 +1,16 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Comment do
+RSpec.describe Comment do
   describe 'validates' do
     context 'raw_body' do
       it 'blank is invalid' do
         comment = build(:comment, raw_body: "")
-        comment.should be_invalid
+        expect(comment).to be_invalid
       end
 
       it 'nil is invalid' do
         comment = build(:comment, raw_body: nil)
-        comment.should be_invalid
+        expect(comment).to be_invalid
       end
     end
   end
