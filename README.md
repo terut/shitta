@@ -1,5 +1,7 @@
 # README
 
+[![travis](https://travis-ci.org/terut/shitta.svg?branch=master)](https://travis-ci.org/terut/shitta)
+
 ## debugger-linecache
 
 you need to specify option for `vm_core.h`.
