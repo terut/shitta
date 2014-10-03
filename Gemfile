@@ -18,7 +18,7 @@ gem 'therubyracer'
 gem 'hipchat'
 
 gem 'jquery-rails'
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 gem 'dotenv-rails'
 
