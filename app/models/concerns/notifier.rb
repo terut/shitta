@@ -13,8 +13,8 @@ module Notifier
     HIPCHAT_ROOM
   end
 
-  def post_notify(model)
-    message = "Oh,cool. New post arrived: #{model.title} #{note_url(model)}"
+  def post_notify
+    message = "Oh,cool. New post arrived: #{self.title} #{note_url(self)}"
     notify(message)
   end
 

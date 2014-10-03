@@ -1,5 +1,5 @@
-# coding: utf-8
 require 'digest'
+
 FactoryGirl.define do
   factory :note do
     user
@@ -10,5 +10,9 @@ FactoryGirl.define do
     end
 
     factory :shared_note, traits: [:with_uuid]
+    after(:build) do
+      Note.skip_callback(:create, :after, :post_notify)
+    end
   end
 end
+

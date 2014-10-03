@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Favorite do
+RSpec.describe Favorite do
   describe "unique index note and user" do
     before do
       @fav = create(:favorite)

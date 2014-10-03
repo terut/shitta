@@ -1,7 +1,6 @@
-# coding: utf-8
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'edit_note' do
+RSpec.describe 'edit_note' do
   context 'edit with own note' do
     include_context 'login'
     before do
@@ -12,24 +11,24 @@ describe 'edit_note' do
 
       click_link "#{@own_note.title}"
 
-      current_path.should == note_path(@own_note)
+      expect(current_path).to eql note_path(@own_note)
 
-      page.should have_content 'Edit'
-      page.should have_content 'Connect Qiita'
+      expect(page).to have_content 'Edit'
+      expect(page).to have_content 'Connect Qiita'
 
       click_link 'Edit'
 
-      current_path.should == edit_note_path(@own_note)
+      expect(current_path).to eql edit_note_path(@own_note)
 
       fill_in 'note_title', with: "capybara title #{@own_note.title}"
       fill_in 'note_raw_body', with: "# capybara body\n#{@own_note.raw_body}"
 
       click_button 'Post'
 
-      current_path.should == note_path(@own_note)
+      expect(current_path).to eql note_path(@own_note)
 
-      page.should have_content "capybara title #{@own_note.title}"
-      page.should have_content "capybara body"
+      expect(page).to have_content "capybara title #{@own_note.title}"
+      expect(page).to have_content "capybara body"
     end
 
   end
@@ -45,10 +44,10 @@ describe 'edit_note' do
 
       click_link "#{@note.title}"
 
-      current_path.should == note_path(@note)
+      expect(current_path).to eql note_path(@note)
 
-      page.should_not have_content 'Edit'
-      page.should_not have_content 'Connect Qiita'
+      expect(page).not_to have_content 'Edit'
+      expect(page).not_to have_content 'Connect Qiita'
     end
   end
 
@@ -63,9 +62,9 @@ describe 'edit_note' do
 
       click_link "#{@own_note.title}"
 
-      current_path.should == note_path(@own_note)
+      expect(current_path).to eql note_path(@own_note)
 
-      page.should have_content 'Share Qiita'
+      expect(page).to have_content 'Share Qiita'
     end
   end
 end

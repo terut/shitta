@@ -11,9 +11,7 @@ class Note < ActiveRecord::Base
 
   scope :latest, lambda { order(created_at: :desc) }
 
-  after_create do
-    post_notify(self)
-  end
+  after_create :post_notify
 
   def share(user)
     return false unless user.connected?
