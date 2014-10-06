@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220163311) do
+ActiveRecord::Schema.define(version: 20141006164232) do
 
   create_table "comments", force: true do |t|
     t.integer  "note_id",    null: false
@@ -56,6 +56,25 @@ ActiveRecord::Schema.define(version: 20140220163311) do
   end
 
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "note_id",    null: false
+    t.integer  "tag_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["note_id"], name: "index_taggings_on_note_id", using: :btree
+  add_index "taggings", ["tag_id", "note_id"], name: "index_taggings_on_tag_id_and_note_id", unique: true, using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name",                       null: false
+    t.integer  "taggings_count", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",               null: false

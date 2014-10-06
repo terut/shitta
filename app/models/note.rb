@@ -5,6 +5,7 @@ class Note < ActiveRecord::Base
   has_many :comments
   has_many :favorites
   has_many :favorited_users, through: :favorites
+  has_many :tags, through: :taggings
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :raw_body, presence: true
