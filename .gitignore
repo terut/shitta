@@ -16,5 +16,6 @@
 /log/*.log
 /tmp
 /vendor/bundle
+/vendor/assets/bower_components
 /public/uploads
 .env

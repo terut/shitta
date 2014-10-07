@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //#= require_tree .
 //= require bootstrap.min.js
+//= require jquery.tagsinput/jquery.tagsinput.min.js
 //= require base.js.coffee

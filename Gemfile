@@ -18,6 +18,8 @@ gem 'therubyracer'
 gem 'hipchat'
 
 gem 'jquery-rails'
+gem 'bower-rails'
+
 gem 'bcrypt'
 
 gem 'dotenv-rails'
