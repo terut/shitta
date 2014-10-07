@@ -28,9 +28,16 @@ class ShittaFav
     @timer = setTimeout hoge,700
 
 $ ->
+  $(document).on "keypress", "input:not(.allow_submit)", (event) -> event.which != 13
+
   $ele = $('#fav')
   if ($ele)
     fav = new ShittaFav $ele
 
   $ele.click ->
     fav.favorite()
+
+  $('#note_tag_list').tagsInput(
+    height: '40px',
+    width: '500px'
+  )

@@ -23,6 +23,10 @@ class Note < ActiveRecord::Base
     end
   end
 
+  def tag_list
+    self.tags.pluck(:name).join(delimiter)
+  end
+
   def share(user)
     return false unless user.connected?
 

@@ -29,9 +29,9 @@ RSpec.describe Note do
   end
 
   describe '#tag_list=' do
+    subject(:note) { build(:note) }
     context 'when tag_list is nil' do
       it 'tags is empty' do
-        note = build(:note)
         note.tag_list = nil
         expect(note.tags.empty?).to be true
       end
@@ -39,31 +39,37 @@ RSpec.describe Note do
 
     context 'when tag_list is ""' do
       it 'tags is empty' do
-        note = build(:note)
         note.tag_list = ""
         expect(note.tags.empty?).to be true
       end
     end
 
-    context 'when tag_list is " aaa　 bbb  ccc "' do
+    context 'when tag_list is " aaa ,　 bbb,  ccc "' do
+      let(:tag_list) { " aaa ,　 bbb,  ccc " }
       it 'tags.size is 3' do
-        note = build(:note)
-        note.tag_list = " aaa　 bbb  ccc "
+        note.tag_list = tag_list
         expect(note.tags.size).to eql 3
+      end
+      it 'tags has aaa, bbb and ccc' do
+        note.tag_list = tag_list
+        expect(note.tags.map(&:name)).to eql ["aaa", "bbb", "ccc"]
       end
     end
 
-    context 'when tag_list is "aaa　bbb ccc"' do
+    context 'when tag_list is "aaa,　bbb, ccc"' do
+      let(:tag_list) { "aaa,　bbb, ccc" }
       it 'tags.size is 3' do
-        note = build(:note)
-        note.tag_list = "aaa　bbb ccc"
+        note.tag_list = tag_list
         expect(note.tags.size).to eql 3
+      end
+      it 'tags has aaa, bbb and ccc' do
+        note.tag_list = tag_list
+        expect(note.tags.map(&:name)).to eql ["aaa", "bbb", "ccc"]
       end
     end
 
     context "when tag_list is 30 characters" do
       it 'save return true' do
-        note = build(:note)
         note.tag_list = "#{"a"*30}"
         expect(note.save).to be true
       end
@@ -71,7 +77,6 @@ RSpec.describe Note do
 
     context "when tag_list is 31 characters" do
       it 'save return false' do
-        note = build(:note)
         note.tag_list = "#{"a"*31}"
         expect(note.save).to be false
       end
