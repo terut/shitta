@@ -28,6 +28,56 @@ RSpec.describe Note do
     end
   end
 
+  describe '#tag_list=' do
+    context 'when tag_list is nil' do
+      it 'tags is empty' do
+        note = build(:note)
+        note.tag_list = nil
+        expect(note.tags.empty?).to be true
+      end
+    end
+
+    context 'when tag_list is ""' do
+      it 'tags is empty' do
+        note = build(:note)
+        note.tag_list = ""
+        expect(note.tags.empty?).to be true
+      end
+    end
+
+    context 'when tag_list is " aaa　 bbb  ccc "' do
+      it 'tags.size is 3' do
+        note = build(:note)
+        note.tag_list = " aaa　 bbb  ccc "
+        expect(note.tags.size).to eql 3
+      end
+    end
+
+    context 'when tag_list is "aaa　bbb ccc"' do
+      it 'tags.size is 3' do
+        note = build(:note)
+        note.tag_list = "aaa　bbb ccc"
+        expect(note.tags.size).to eql 3
+      end
+    end
+
+    context "when tag_list is 30 characters" do
+      it 'save return true' do
+        note = build(:note)
+        note.tag_list = "#{"a"*30}"
+        expect(note.save).to be true
+      end
+    end
+
+    context "when tag_list is 31 characters" do
+      it 'save return false' do
+        note = build(:note)
+        note.tag_list = "#{"a"*31}"
+        expect(note.save).to be false
+      end
+    end
+  end
+
   describe '#shared?' do
     context 'when note is shared' do
       let(:shared_note) { create(:shared_note) }

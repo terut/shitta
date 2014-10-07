@@ -1,10 +1,12 @@
 class Note < ActiveRecord::Base
   include Notifier
+  include TagParser
 
   belongs_to :user
   has_many :comments
   has_many :favorites
   has_many :favorited_users, through: :favorites
+  has_many :taggings
   has_many :tags, through: :taggings
 
   validates :title, presence: true, length: { maximum: 250 }
@@ -13,6 +15,13 @@ class Note < ActiveRecord::Base
   scope :latest, lambda { order(created_at: :desc) }
 
   after_create :post_notify
+
+  def tag_list=(tag_list)
+    tag_names = parse(tag_list)
+    tag_names.each do |tag_name|
+      self.tags.build(name: tag_name)
+    end
+  end
 
   def share(user)
     return false unless user.connected?

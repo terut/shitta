@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :tagging do
+    note
+    tag
   end
 end
