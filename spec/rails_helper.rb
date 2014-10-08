@@ -33,7 +33,7 @@ RSpec.configure do |config|
     unless config.reporter.failed_examples.count > 0
       case RUBY_PLATFORM
       when /darwin/
-        `qlmanage -p #{Rails.root}/spec/support/images/rg0wNNb.gif >& /dev/null &`
+        #`qlmanage -p #{Rails.root}/spec/support/images/rg0wNNb.gif >& /dev/null &`
       else /win32/
       end
     end

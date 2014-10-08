@@ -32,7 +32,7 @@ class NotesController < ApplicationController
     if @note.update_attributes(note_params)
       redirect_to note_path(@note)
     else
-      render :edit
+      render :new
     end
   end
 
@@ -46,6 +46,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:raw_body, :title)
+    params.require(:note).permit(:raw_body, :title, :tag_list)
   end
 end

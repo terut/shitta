@@ -116,3 +116,16 @@ h3 {
 .user-name a:hover {
   color: $darkPink;
 }
+.errors-message {
+  margin-bottom: 10px;
+}
+.tags {
+  margin-bottom: 20px;
+  a.tag {
+    padding: 5px;
+    border: 1px solid #aaa;
+    background: #ccc;
+    color: #666;
+    margin-right: 3px;
+  }
+}
