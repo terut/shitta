@@ -119,3 +119,13 @@ h3 {
 .errors-message {
   margin-bottom: 10px;
 }
+.tags {
+  margin-bottom: 20px;
+  a.tag {
+    padding: 5px;
+    border: 1px solid #aaa;
+    background: #ccc;
+    color: #666;
+    margin-right: 3px;
+  }
+}
