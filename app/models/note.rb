@@ -20,18 +20,7 @@ class Note < ActiveRecord::Base
   def tag_list=(tag_list)
     tag_names = parse(tag_list)
     removal_marked(tag_names)
-
-    old_tags = self.tags.map(&:name)
-
-    exists_tags = Tag.where(name: tag_names)
-    exists_tags.each do |tag|
-      self.tags << tag unless old_tags.include?(tag.name)
-      tag_names.delete(tag.name)
-    end
-
-    tag_names.each do |tag_name|
-      self.tags.build(name: tag_name) unless old_tags.include?(tag_name)
-    end
+    build_tags(tag_names)
   end
 
   def tag_list
@@ -74,6 +63,20 @@ class Note < ActiveRecord::Base
   def removal_marked(tag_names)
     self.tags.each do |tag|
       tag.mark_for_destruction unless tag_names.include?(tag.name)
+    end
+  end
+
+  def build_tags(tag_names)
+    current_tags = self.tags.map(&:name)
+
+    exists_tags = Tag.where(name: tag_names)
+    exists_tags.each do |tag|
+      self.tags << tag unless current_tags.include?(tag.name)
+      tag_names.delete(tag.name)
+    end
+
+    tag_names.each do |tag_name|
+      self.tags.build(name: tag_name) unless current_tags.include?(tag_name)
     end
   end
 end
