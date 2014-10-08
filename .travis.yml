@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 2.1.3
 before_script:
+  - "npm install -g bower"
   - "mysql -e 'create database shitta_test;'"
   - "cp ./config/database.travis.yml ./config/database.yml"
   - "RAILS_ENV=test bundle exec rake db:migrate"
+  - "bundle exec rake bower:install"

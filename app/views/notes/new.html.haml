@@ -10,8 +10,8 @@
       %li= message
 = form_for @note do |f|
   = f.text_field :title, class: 'input-block-level', placeholder: 'Title'
+  = f.text_field :tag_list, class: 'input-block-level'
   = f.text_area :raw_body, class: 'input-block-level', placeholder: 'Note'
-  = f.text_field :tag_list
   %div
     = f.submit 'Post', class: 'btn btn-large btn-primary'
     = link_to 'Cancel', root_path, class: 'btn btn-large'

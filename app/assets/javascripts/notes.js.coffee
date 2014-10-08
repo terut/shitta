@@ -38,6 +38,9 @@ $ ->
     fav.favorite()
 
   $('#note_tag_list').tagsInput(
-    height: '40px',
-    width: '500px'
+    height: '35px',
+    width: '98.3%',
+    defaultText: 'Tags',
+    maxChars: '50',
+    placeholderColor: '#999'
   )

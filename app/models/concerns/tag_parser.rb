@@ -1,7 +1,8 @@
 module TagParser
   def parse(tag_list)
     return [] if tag_list.blank?
-    compact(tag_list).split(delimiter).reject(&:empty?)
+    raws = compact(tag_list).split(delimiter)
+    raws.map { |raw| raw.downcase unless raw.empty? }.uniq
   end
 
   private

@@ -56,29 +56,60 @@ RSpec.describe Note do
       end
     end
 
-    context 'when tag_list is "aaa,　bbb, ccc"' do
-      let(:tag_list) { "aaa,　bbb, ccc" }
-      it 'tags.size is 3' do
+    context 'when tag_list is "aaa, BBB, Arch_Linux, bbb' do
+      let(:tag_list) { "aaa, BBB, Arch_Linux, bbb" }
+      it 'tags has downcase name' do
         note.tag_list = tag_list
-        expect(note.tags.size).to eql 3
+        expect(note.tags.map(&:name)).to eql ["aaa", "bbb", "arch_linux"]
       end
-      it 'tags has aaa, bbb and ccc' do
+
+      it 'tags is uniq' do
         note.tag_list = tag_list
-        expect(note.tags.map(&:name)).to eql ["aaa", "bbb", "ccc"]
+        expect(note.tags.map(&:name)).to eql ["aaa", "bbb", "arch_linux"]
+      end
+    end
+
+    context "when tag_list is 5 words" do
+      it 'valid return true' do
+        note.tag_list = "aaa,bbb,ccc,ddd,eee"
+        expect(note.valid?).to be true
+      end
+
+      it 'tags can update' do
+        note = create(:note_with_tags, tags_count: 5) 
+        tag_names = note.tags.map(&:name).sample(3)
+        note.tag_list = "#{tag_names.join(",")}, add1, add2"
+        expect(note.valid?).to be true
+      end
+
+      it 'updated tags is corrent' do
+        note = create(:note_with_tags, tags_count: 5) 
+        tag_names = note.tags.map(&:name).sample(3)
+        tag_names += ["add1", "add2"]
+        note.tag_list = tag_names.join(",")
+        note.save
+        expect(note.tags.map(&:name) - tag_names).to be_empty
+      end
+    end
+
+    context "when tag_list is 6 words" do
+      it 'valid return false' do
+        note.tag_list = "aaa,bbb,ccc,ddd,eee,fff"
+        expect(note.valid?).to be false
       end
     end
 
     context "when tag_list is 30 characters" do
-      it 'save return true' do
+      it 'valid return true' do
         note.tag_list = "#{"a"*30}"
-        expect(note.save).to be true
+        expect(note.valid?).to be true
       end
     end
 
     context "when tag_list is 31 characters" do
-      it 'save return false' do
+      it 'valid return false' do
         note.tag_list = "#{"a"*31}"
-        expect(note.save).to be false
+        expect(note.valid?).to be false
       end
     end
   end
