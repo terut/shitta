@@ -1,0 +1,21 @@
+@import '_variables';
+
+$navbar-default-color: $subAccentColor;
+$navbar-default-bg: $mainColor;
+$navbar-default-link-color: $subAccentColor;
+$navbar-default-link-active-color: $subAccentColor;
+$navbar-default-link-hover-color: $subAccentDarkColor;
+
+@import 'bootstrap-sass-official/assets/stylesheets/_bootstrap-sprockets';
+@import 'bootstrap-sass-official/assets/stylesheets/_bootstrap';
+
+a:hover {
+  text-decoration: none;
+}
+.navbar-default {
+  padding-left: 20px;
+  padding-right: 20px;
+  .navbar-brand {
+    @include webfont-bold;
+  }
+}

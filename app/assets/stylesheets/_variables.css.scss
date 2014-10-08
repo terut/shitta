@@ -1,24 +1,22 @@
-// bootstrap patch
-//
-// @blue: #cbf2ff
-// @pink: #d64e80
-// hover: #c22d64
-// @linkColor: @pink
-// @navbarBackground: #222
-// @navbarBackgroundHighlight: #333
-// @navbarText: @white
-// @navbarLinkColor: @white
-// @navbarLinkColorHover: @pink
-// @dropdownBackground: @navbarBackground
-// @dropdownLinkColor: @white
-// @dropdownLinkColorHover: @pink
-// background-image: url(bg2.png);
 $white: #f7f7f7;
 $pink: #d64e80;
 $blue: #cbf2ff;
 $darkPink: #c22d64;
-$navbarActiveColor: #222;
+// 70% white
+$baseColor: #f7f7f7;
+$baseDarkColor: #f1f1f1;
+// 25% dark red
+$mainColor: #ca475c;
+$mainDarkColor: #c90022;
+// 5% dark blue
+$accentColor: #cbf2ff;
+$accentDarkColor: #cbf2ff;
+$subAccentColor: #f7f7f7;
+$subAccentDarkColor: #d7d7d7;
+// gray
 $mainTextColor: #333;
+// darkgray
+$subTextColor: #222;
 
 @mixin margin-tbase {
   margin-top: 20px;

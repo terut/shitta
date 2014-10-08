@@ -1,2 +1,4 @@
-#asset 'bootstrap'
-asset 'jquery.tagsinput'
+asset 'jquery'
+asset 'jquery-ujs'
+asset 'bootstrap-sass-official'
+asset 'bootstrap-tagsinput'

@@ -11,8 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
+//= require jquery-ujs
 //#= require_tree .
-//= require bootstrap.min.js
-//= require jquery.tagsinput/jquery.tagsinput.min.js
-//= require base.js.coffee
+//= require bootstrap-sass-official/assets/javascripts/bootstrap-sprockets
+//= require bootstrap-tagsinput
+//= require base

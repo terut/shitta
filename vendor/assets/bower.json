@@ -1,6 +1,9 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "jquery.tagsinput": "latest"
+    "jquery": "latest",
+    "jquery-ujs": "latest",
+    "bootstrap-sass-official": "latest",
+    "bootstrap-tagsinput": "latest"
   }
 }

@@ -10,11 +10,11 @@
  *
  *= require_self
  *# require_tree .
- *= require bootstrap.min.css
- *= require jquery.tagsinput/jquery.tagsinput.css
- *= require base.css.scss
- *= require sessions.css.scss
- *= require notes.css.scss
- *= require users.css.scss
- *= require services.css.scss
+ *= require bootstrap-custom
+ *= require bootstrap-tagsinput
+ *= require base
+ *= require sessions
+ *= require notes
+ *= require users
+ *= require services
  */
