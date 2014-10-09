@@ -16,7 +16,7 @@
           %li=link_to 'Contact', root_path
         %ul.nav.navbar-nav.navbar-right
           - if signin?
-            %li= link_to image_tag(current_user.avatar_url, class: 'img-rounded'), user_path(current_user.username), class: 'user-img-s'
+            %li= link_to image_tag(current_user.avatar_url, class: 'user-img-s img-rounded'), user_path(current_user.username), class: 'current-user'
             .dropdown
               -# TODO check
               %ul.dropdown-menu.pull-right{ role: 'menu', 'aria-labelledby' => 'dLabel' }

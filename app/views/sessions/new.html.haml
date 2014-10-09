@@ -3,7 +3,7 @@
     %h1.hidden Sign in
     - unless flash.alert.blank?
       %p.message.text-danger= flash.alert
-    = form_tag sessions_path do
+    = form_tag sessions_path, role: 'form' do
       .form-group
         = text_field_tag :username, params[:username], class: 'form-control', placeholder: 'Username'
       .form-group

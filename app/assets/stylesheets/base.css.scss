@@ -60,17 +60,17 @@ h1, h2, h3, h4, h5, h6 {
   -moz-box-shadow: white 0 1px 0;
   -webkit-box-shadow: white 0 1px 0;
 }*/
-.navbar-nav .user-img-s {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  img {
-    width: 30px;
-    height: 30px;
-  }
+.navbar-nav .current-user {
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 .user-img {
   width: 60px;
   height: 60px;
+}
+.user-img-s {
+  width: 28px;
+  height: 28px;
 }
 .user-name a {
   color: $mainTextColor;

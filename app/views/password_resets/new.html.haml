@@ -5,7 +5,7 @@
       .message.text-danger= flash.alert
     - unless flash.notice.blank?
       .message.text-success= flash.notice
-    = form_tag password_resets_path do
+    = form_tag password_resets_path, role: 'form' do
       %span.help-block Enter your email address.
       = text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Email'
       %div.margin-t
