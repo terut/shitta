@@ -12,32 +12,31 @@
   font-family: 'Vegur-Bold';
   src: url(font-path('Vegur-Bold.otf')) format('opentype');
 }
-
 body {
-  background: $white url(image-path('bg.png')) repeat;
+  line-height: 1.3em;
   //font: 13.34px Helvetica, arial, freesans, clean, sans-serif;
 }
 h1 {
+  margin-top: 0px;
   font-size: 32px;
 }
 h2 {
-  font-size: 27px;
+  margin-top: 0px;
+  font-size: 24px;
 }
 h3 {
-  font-size: 22px;
+  margin-top: 0px;
+  font-size: 18px;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3em;
 }
 #container {
   width: 980px;
   margin: 0 auto;
-  margin-top: 40px;
-  line-height: 1.7em;
 }
 #main {
   overflow: hidden;
-}
-
-.navbar-text .dropdown {
-  display: inline;
 }
 .hidden {
   display: none;
@@ -52,36 +51,39 @@ h3 {
   @include webfont;
   font-size: 30px;
 }
-.btn-large-font {
-  @include webfont;
-  @include font-xlarge;
+.impact-text {
+  font-weight: bold;
 }
-.shadow-line {
+/*.shadow-line {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: white 0 1px 0;
   -moz-box-shadow: white 0 1px 0;
   -webkit-box-shadow: white 0 1px 0;
+}*/
+.navbar-nav .user-img-s {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
 }
 .user-img {
-  width: 45px;
-  height: 45px;
-}
-.user-img-s {
-  width: 28px;
-  height: 28px;
-  margin-right: 3px;
+  width: 60px;
+  height: 60px;
 }
 .user-name a {
   color: $mainTextColor;
-  font-family: bold;
+  font-weight: bold;
   @include font-large;
 }
 .user-name a:focus,
 .user-name a:hover {
   color: $darkPink;
 }
-.errors-message {
+.message {
   margin-bottom: 10px;
+  padding: 5px 0px;
 }
 .tags {
   margin-bottom: 20px;

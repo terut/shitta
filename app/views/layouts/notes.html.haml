@@ -1,9 +1,8 @@
 - content_for :content do
-  .row-fluid.margin-t
-    #main.span9
-      .row-fluid
-        = yield
-    #sidebar.span3
-      - if content_for?(:sidebar)
-        = yield(:sidebar)
+  .row
+    #main.col-md-9
+      = yield(:nav) if content_for?(:nav)
+      = yield
+    #sidebar.col-md-3
+      = yield(:sidebar) if content_for?(:sidebar)
 = render template: 'layouts/application'

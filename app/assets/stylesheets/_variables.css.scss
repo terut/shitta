@@ -18,6 +18,16 @@ $mainTextColor: #333;
 // darkgray
 $subTextColor: #222;
 
+// Twitter Bootstrap
+$body-bg: $baseColor;
+$brand-primary: $mainColor;
+$navbar-height: 40px;
+$navbar-default-color: $subAccentColor;
+$navbar-default-bg: $mainColor;
+$navbar-default-link-color: $subAccentColor;
+$navbar-default-link-active-color: $subAccentColor;
+$navbar-default-link-hover-color: $subAccentDarkColor;
+
 @mixin margin-tbase {
   margin-top: 20px;
 }

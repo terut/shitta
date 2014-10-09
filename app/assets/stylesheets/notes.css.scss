@@ -3,26 +3,62 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import '_variables';
 
+// index
 .media h2 {
   margin-top: 5px;
   margin-bottom: 5px;
   line-height: 25px;
   font-size: 25px;
 }
+.note-summaries {
+  padding-left: 15px;
+}
+.note-summary{
+  position: relative;
+  background: $baseColor;
+  padding: 0;
+  margin-top: 40px;
+  margin-bottom: 1em;
+  border: 1px solid #eee;
+  //border-bottom: 1px solid #eee;
+  //border-right: 1px solid #eee;
+  //border-left: 1px solid #fff;
+  .note-summary-user {
+    display: block;
+    left: -15px;
+    top: -20px;
+    position: absolute;
+  }
+  .user-name a {
+    display: block;
+    padding: 10px 10px 10px 52px;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    a {
+      display: block;
+      padding: 5px 20px 10px 20px;
+    }
+  }
+}
+
+// new, edit
 textarea#note_raw_body {
     height: 500px;
 }
+// show
 .note, .comments {
   font-size: 15px;
-  line-height: 1.7;
-  h1, h2, h3, h4, h5, h6 {
-    margin: 1em 0 15px;
+  line-height: 1.3em;
+  h1 {
+    line-height: 1.3em;
   }
   p {
     margin: 15px 0;
   }
   li {
-    line-height: 1.7;
+    line-height: 1.7em;
   }
 }
 .code-container {

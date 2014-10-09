@@ -1,7 +1,7 @@
 @import '_variables';
 
 .logobox {
-  background-color: $pink;
+  background-color: $mainColor;
   width: 300px;
   height: 300px;
 
@@ -9,7 +9,7 @@
     text-align: center;
     line-height: 300px;
     font-size: 80px;
-    color: $white;
+    color: $subAccentColor;
     @include webfont-bold;
   }
 }
