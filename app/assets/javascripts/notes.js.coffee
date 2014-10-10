@@ -37,10 +37,13 @@ $ ->
   $ele.click ->
     fav.favorite()
 
-  $('#note_tag_list').tagsInput(
-    height: '35px',
-    width: '98.3%',
-    defaultText: 'Tags',
-    maxChars: '50',
-    placeholderColor: '#999'
-  )
+  $('#note_tag_list').tagsinput({
+    maxTags: 5,
+    maxChars: 30,
+    trimValue: true,
+    typeahead: {
+      # TODO refactoring
+      source: (query) ->
+        return $.get("//localhost:3000/tags/autocomplete.json?q=" + query)
+    }
+  })

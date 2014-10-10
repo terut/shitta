@@ -4,6 +4,7 @@
     "jquery": "latest",
     "jquery-ujs": "latest",
     "bootstrap-sass-official": "latest",
-    "bootstrap-tagsinput": "latest"
+    "bootstrap-tagsinput": "latest",
+    "bootstrap3-typeahead": "latest"
   }
 }
