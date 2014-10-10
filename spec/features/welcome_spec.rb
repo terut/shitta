@@ -30,7 +30,9 @@ RSpec.describe 'welcome' do
       visit '/'
       expect(page).to have_content '社内用技術情報共有サービス'
 
-      click_link 'Sign in'
+      within("#container") do
+        click_link 'Sign in'
+      end
 
       expect(current_path).to eql signin_path
 
