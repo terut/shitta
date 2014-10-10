@@ -12,11 +12,10 @@
     %header.navbar.navbar-default.navbar-static-top{ role: 'navigation' }
       .container-fluid
         = link_to 'Shitta', root_path, title: 'Shitta', class: 'navbar-brand'
-        %ul.nav.navbar-nav.navbar-left
+        %ul.nav.navbar-nav.navbar-right
           %li.active=link_to 'Home', root_path
           %li=link_to 'About', root_path
           %li=link_to 'Contact', root_path
-        %ul.nav.navbar-nav.navbar-right
           - if signin?
             %li.dropdown
               %div.current-user{ "data-toggle" => "dropdown" }= image_tag current_user.avatar_url, class: 'user-img-s img-rounded'
