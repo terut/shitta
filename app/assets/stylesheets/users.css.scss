@@ -1,6 +1,10 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import '_variables';
+
 .profile-username {
   font-size: 20px;
+  padding-left: 3px;
+}
+.user-summary {
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid $baseDarkColor;
 }

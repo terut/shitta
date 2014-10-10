@@ -1,6 +1,3 @@
-// Place all the styles related to the notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import '_variables';
 
 // index
@@ -19,7 +16,10 @@
   padding: 0;
   margin-top: 40px;
   margin-bottom: 1em;
-  border: 1px solid #eee;
+  border: 1px solid $baseDarkColor;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   //border-bottom: 1px solid #eee;
   //border-right: 1px solid #eee;
   //border-left: 1px solid #fff;
@@ -45,27 +45,39 @@
 // show
 .note, .comments {
   font-size: 15px;
-  line-height: 1.3em;
-  h1 {
+  line-height: 1.6em;
+  h1, h2, h3, h4, h5, h6 {
     line-height: 1.3em;
+    font-weight: bold;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $baseDarkColor;
   }
-  p {
-    margin: 15px 0;
+  h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  p, ul {
+    margin: 0 0 16px 0;
   }
   li {
     line-height: 1.7em;
   }
 }
 .code-container {
-  border: 1px solid #ccc;
-  margin: 0 0 10px;
+  border: 1px solid $baseDarkColor;
+  margin: 0 0 16px;
 
   .code-title {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $baseDarkColor;
     padding: 5px 15px;
     font-weight: bold;
-    color: #f7f7f7;
-    background: #f7f7f7;
+    color: $subAccentColor;
+    background: $mainColor;
   }
   .code-main {
     overflow: auto;
@@ -76,8 +88,8 @@
     white-space: pre;
   }
   .linenos {
-    border-right: 1px solid #ccc;
-    background-color: #f5f5f5;
+    border-right: 1px solid $baseDarkColor;
+    background-color: #fff;
   }
   .linenos pre {
     padding-left: 7.5px;
@@ -90,12 +102,18 @@
   .code {
     font: 12px Consolas, "Liberation Mono", Courier, monospace;
     width: 100%;
-    background-color: #f5f5f5;
+    background-color: #fff;
   }
 }
 .comment {
   @include margin-tbase;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid $baseDarkColor;
+  .user-name {
+    margin-left: 3px;
+  }
   .comment-body {
+    margin-top: 5px;
     padding: 0 10px;
     padding-bottom: 0;
   }
@@ -110,7 +128,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-//TODO fix display
 .favorited-user {
   position: relative;
   display:inline-block;
@@ -119,15 +136,44 @@
   overflow: hidden;
   .favorite-point {
     position: absolute;
-    top: 19px;
+    top: 18px;
+    left: 0px;
     width: 28px;
     height: 10px;
-    background-color:rgba(0, 0, 0, 0.7);
-    color: #efefef;
+    //background-color:rgba(0, 0, 0, 0.8);
+    background-color: $mainColor;
+    color: $subAccentColor;
     text-align: center;
     padding: 0;
-    line-height: 1.2em;
-    font-size: 8px;
+    line-height: 1.0em;
+    font-size: 10px;
+    opacity: 0.8;
+    @include webfont-light;
   }
 }
-
+// custom bootstrap-tagsinput
+.bootstrap-tagsinput {
+  width: 100%;
+  padding: 6px 12px;
+  ::-webkit-input-placeholder { color: #777 }
+  :-moz-placeholder { color: #777 }
+  .label-info {
+    background-color: $gray;
+  }
+  .label {
+    font-weight: normal;
+    font-size: 14px;
+  }
+  .tag [data-role="remove"]:hover,
+  .tag [data-role="remove"]:hover:active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+}
+.typeahead.dropdown-menu {
+  .active a {
+    background-color: whitesmoke;
+    color: $mainTextColor;
+  }
+}

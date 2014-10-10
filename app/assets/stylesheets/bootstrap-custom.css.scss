@@ -11,4 +11,7 @@ a:hover {
   .navbar-brand {
     @include webfont-bold;
   }
+  .navbar-nav.navbar-right {
+    margin-right: 0;
+  }
 }

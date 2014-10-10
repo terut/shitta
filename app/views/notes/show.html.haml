@@ -14,12 +14,12 @@
     %h3 We say "Awesome!!"
     %div#dummy_favorited
       %span.favorited-user
-        = link_to image_tag(current_user.avatar_url, class: 'user-img-s img-circle'), user_path(current_user.username)
+        = link_to image_tag(current_user.avatar_url, class: 'user-img-s img-rounded'), user_path(current_user.username)
     %div#favorited
       -# TODO refactoring
       - @note.favorites.each do |fav|
         %span.favorited-user
-          = link_to image_tag(fav.user.avatar_url, class: 'user-img-s img-circle'), user_path(fav.user.username)
+          = link_to image_tag(fav.user.avatar_url, class: 'user-img-s img-rounded'), user_path(fav.user.username)
           - if fav.point > 1
             %span.favorite-point= fav.point
   %div
@@ -31,14 +31,15 @@
     - @note.tags.each do |tag|
       = link_to tag.name, "#", class: "tag"
   ~ markdown @note.raw_body
-.comments
+.comments.margin-bm
   %h3 Comments
   %ul.list-unstyled
     - @note.comments.each do |comment|
       %li.comment
         %div
-          = link_to image_tag(comment.user.avatar_url, class: 'user-img-s'), user_path(comment.user.username)
-          = link_to comment.user.name, user_path(comment.user.username)
+          = link_to image_tag(comment.user.avatar_url, class: 'user-img-s img-circle'), user_path(comment.user.username)
+          %span.user-name
+            = link_to comment.user.name, user_path(comment.user.username)
           - if current_user.owner?(comment)
             = link_to 'Edit', edit_comment_path(comment), class: "comment-options"
         %div.comment-body~ markdown comment.raw_body

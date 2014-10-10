@@ -1,10 +1,13 @@
-%h1.title.shadow-line Account
+%h1.hidden Account
 = render partial: "errors", object: user, as: :model
-.span5.offset3
-  = form_for user, url: account_path, html: { multipart: true } do |f|
-    = f.text_field :email, class: 'input-midium', placeholder: 'Email'
-    = f.file_field :avatar, class: 'input-midium', placeholder: 'Avatar'
-    = f.hidden_field :avatar_cache
-    = f.text_area :bio, class: 'input-midium margin-t', placeholder: 'Bio'
+.col-md-7
+  = form_for user, url: account_path, html: { multipart: true }, role: 'form' do |f|
+    .form-group
+      = f.text_field :email, class: 'form-control', placeholder: 'Email'
+    .form-group
+      = f.file_field :avatar, class: 'form-control', placeholder: 'Avatar'
+      = f.hidden_field :avatar_cache
+    .form-group
+      = f.text_area :bio, class: 'form-control', placeholder: 'Bio', rows: '3'
     %div
-    = f.submit 'Update', class: 'btn btn-large btn-primary'
+      = f.submit 'Update', class: 'btn btn-primary'

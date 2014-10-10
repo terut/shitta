@@ -1,26 +1,27 @@
 $white: #f7f7f7;
 $pink: #d64e80;
 $blue: #cbf2ff;
+$gray: #777;
 $darkPink: #c22d64;
 // 70% white
 $baseColor: #f7f7f7;
-$baseDarkColor: #f1f1f1;
+$baseDarkColor: #ddd;
 // 25% dark red
 $mainColor: #ca475c;
 $mainDarkColor: #c90022;
 // 5% dark blue
-$accentColor: #cbf2ff;
-$accentDarkColor: #cbf2ff;
+$accentColor: #4682b4;
+$accentDarkColor: #165e83;
 $subAccentColor: #f7f7f7;
-$subAccentDarkColor: #d7d7d7;
+$subAccentDarkColor: #ddd;
 // gray
 $mainTextColor: #333;
 // darkgray
 $subTextColor: #222;
 
 // Twitter Bootstrap
-$body-bg: $baseColor;
 $brand-primary: $mainColor;
+$body-bg: $baseColor;
 $navbar-height: 40px;
 $navbar-default-color: $subAccentColor;
 $navbar-default-bg: $mainColor;
