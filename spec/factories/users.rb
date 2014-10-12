@@ -12,12 +12,17 @@ FactoryGirl.define do
       reset_token_expired_at 24.hours.since
     end
 
+    trait :with_admin do
+      admin true
+    end
+
     trait :with_connected do
       after(:create) { |user| create(:service, user_id: user.id) }
     end
 
     factory :connected_user, traits: [ :with_connected ]
     factory :reset_token_user, traits: [ :with_reset_token ]
+    factory :admin_user, traits: [:with_admin]
   end
 
   factory :specify_user, parent: :user do

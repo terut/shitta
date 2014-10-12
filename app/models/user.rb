@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
     self.id == model.user_id
   end
 
+  def admin?
+    self.admin
+  end
+
   def connected?
     !self.services.blank?
   end
