@@ -1,10 +1,10 @@
 class NotesController < ApplicationController
   def index
-    @notes = Note.latest.page(params[:page])
+    @notes = Note.with_tags.with_author.latest.page(params[:page])
   end
 
   def show
-    @note = Note.find(params[:id])
+    @note = Note.with_tags.with_author.with_favorited_users.find(params[:id])
   end
 
   def new

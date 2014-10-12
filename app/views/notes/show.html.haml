@@ -19,9 +19,10 @@
       -# TODO refactoring
       - @note.favorites.each do |fav|
         %span.favorited-user
-          = link_to image_tag(fav.user.avatar_url, class: 'user-img-s img-rounded'), user_path(fav.user.username)
-          - if fav.point > 1
-            %span.favorite-point= fav.point
+          = link_to user_path(fav.user.username) do
+            = image_tag(fav.user.avatar_url, class: 'user-img-s img-rounded')
+            - if fav.point > 1
+              %span.favorite-point= fav.point
   - if current_user.admin?
     %div.margin-bm
       %h3 Admin
@@ -32,9 +33,10 @@
 
 .note
   %h1= @note.title
-  .tags
-    - @note.tags.each do |tag|
-      = link_to tag.name, "#", class: "tag"
+  - if @note.tags.present?
+    .tags
+      - @note.tags.each do |tag|
+        = link_to tag.name, "#", class: "tag"
   ~ markdown @note.raw_body
 .comments.margin-bm
   %h3 Comments

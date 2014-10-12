@@ -97,12 +97,8 @@ h1, h2, h3, h4, h5, h6 {
 .user-name {
   a {
     display: inline-block;
-    color: $accentColor;
     font-weight: bold;
     @include font-large;
-  }
-  a:focus, a:hover {
-    color: $accentDarkColor;
   }
 }
 .message {
@@ -126,5 +122,4 @@ h1, h2, h3, h4, h5, h6 {
   a:focus, a:hover {
     color: $accentDarkColor;
   }
-
 }

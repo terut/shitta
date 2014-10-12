@@ -5,7 +5,7 @@ class Note < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   has_many :favorites
-  has_many :favorited_users, through: :favorites
+  has_many :favorited_users, through: :favorites, source: :user
   has_many :taggings
   has_many :tags, through: :taggings, autosave: true
 
@@ -13,7 +13,10 @@ class Note < ActiveRecord::Base
   validates :raw_body, presence: true
   validates :tags, associations_length: { length: { maximum: 5 } }
 
-  scope :latest, lambda { order(created_at: :desc) }
+  scope :latest, -> { order(created_at: :desc) }
+  scope :with_tags, -> { includes(:tags) }
+  scope :with_author, -> { includes(:user) }
+  scope :with_favorited_users, -> { includes(:favorited_users) }
 
   after_create :post_notify
 
