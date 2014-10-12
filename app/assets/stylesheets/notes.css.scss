@@ -12,7 +12,7 @@
 }
 .note-summary{
   position: relative;
-  background: $baseColor;
+  background: $white;
   padding: 0;
   margin-top: 40px;
   margin-bottom: 1em;
@@ -31,14 +31,19 @@
   }
   .user-name a {
     display: block;
-    padding: 10px 10px 10px 52px;
+    padding: 12px 10px 12px 52px;
+    color: $accentColor;
   }
   h2 {
     margin-top: 0;
     margin-bottom: 0;
     a {
       display: block;
-      padding: 5px 20px 10px 20px;
+      padding: 10px 20px 10px 20px;
+      color: $mainTextColor;
+    }
+    a:hover {
+      color: $mainColor;
     }
   }
 }
@@ -77,7 +82,7 @@
     padding: 5px 15px;
     font-weight: bold;
     color: $subAccentColor;
-    background: $mainColor;
+    background: $gray;
   }
   .code-main {
     overflow: auto;
@@ -86,10 +91,10 @@
     margin: 0 0;
     border: none;
     white-space: pre;
+    background: $white;
   }
   .linenos {
     border-right: 1px solid $baseDarkColor;
-    background-color: #fff;
   }
   .linenos pre {
     padding-left: 7.5px;
@@ -102,7 +107,6 @@
   .code {
     font: 12px Consolas, "Liberation Mono", Courier, monospace;
     width: 100%;
-    background-color: #fff;
   }
 }
 .comment {
@@ -173,7 +177,7 @@
 }
 .typeahead.dropdown-menu {
   .active a {
-    background-color: whitesmoke;
+    background-color: $baseColor;
     color: $mainTextColor;
   }
 }

@@ -11,7 +11,9 @@
   %body
     %header.navbar.navbar-default.navbar-static-top{ role: 'navigation' }
       .container-fluid
-        = link_to 'Shitta', root_path, title: 'Shitta', class: 'navbar-brand'
+        = link_to root_path, title: 'Shitta', class:'navbar-brand logo' do
+          = image_tag 'logo.png', class: 'img-circle'
+          %h1 Shitta
         %ul.nav.navbar-nav.navbar-right
           %li.active=link_to 'Home', root_path
           %li=link_to 'About', root_path

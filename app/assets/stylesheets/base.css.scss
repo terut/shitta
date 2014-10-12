@@ -37,6 +37,21 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0px;
   line-height: 1.3em;
 }
+.logo {
+  img {
+    position: absolute;
+    top: 6px;
+    width: 28px;
+    height: 28px;
+  }
+  h1 {
+    display: inline-block;
+    font-size: 18px;
+    padding-left: 33px;
+    margin-bottom: 0px;
+    line-height: 20px;
+  }
+}
 #container {
   width: 980px;
   margin: 0 auto;
@@ -87,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .user-name a:focus,
 .user-name a:hover {
-  color: $darkPink;
+  color: $mainDarkColor;
 }
 .message {
   margin-bottom: 10px;
@@ -98,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   a.tag {
     padding: 5px;
     border: 1px solid $baseDarkColor;
-    background: #fff;
+    background: $white;
     color: $accentColor;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
