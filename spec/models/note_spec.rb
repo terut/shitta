@@ -28,6 +28,29 @@ RSpec.describe Note do
     end
   end
 
+  describe '#create' do
+    context 'when note add new tag' do
+      it 'tags_count is 1' do
+        note = create(:note_with_tags, tags_count: 1)
+        tag = Tag.find_by_id(note.tags[0].id)
+        expect(tag.taggings_count).to eql 1
+      end
+    end
+  end
+
+  describe '#update' do
+    context 'when note remove tag' do
+      it 'tags_count is 0' do
+        note = create(:note_with_tags, tags_count: 1)
+        tag = note.tags[0]
+        note.tag_list = "new_tag"
+        note.save
+        remove_tag = Tag.find_by_id(tag.id)
+        expect(remove_tag.taggings_count).to eql 0
+      end
+    end
+  end
+
   describe '#tag_list=' do
     subject(:note) { build(:note) }
     context 'when tag_list is nil' do
