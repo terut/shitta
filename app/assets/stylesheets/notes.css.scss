@@ -29,9 +29,11 @@
     top: -20px;
     position: absolute;
   }
-  .user-name a {
-    display: block;
+  .note-summary-meta {
     padding: 12px 10px 12px 52px;
+  }
+  .user-name {
+    display: block;
   }
   h2 {
     margin-top: 0;
@@ -120,8 +122,10 @@
   @include margin-tbase;
   padding-bottom: 0.3em;
   border-bottom: 1px solid $baseDarkColor;
-  .user-name {
-    margin-left: 3px;
+  .comment-meta {
+    img {
+      margin-right: 3px;
+    }
   }
   .comment-body {
     margin-top: 5px;

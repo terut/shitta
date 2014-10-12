@@ -95,11 +95,9 @@ h1, h2, h3, h4, h5, h6 {
   height: 28px;
 }
 .user-name {
-  a {
-    display: inline-block;
-    font-weight: bold;
-    @include font-large;
-  }
+  display: inline-block;
+  font-weight: bold;
+  @include font-large;
 }
 .message {
   margin-bottom: 10px;

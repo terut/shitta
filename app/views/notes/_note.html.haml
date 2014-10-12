@@ -1,6 +1,11 @@
 .note-summary
   = link_to image_tag(note.user.avatar_url, class: 'user-img img-circle'), user_path(note.user.username), class: 'note-summary-user'
-  .user-name= link_to note.user.name, user_path(note.user.username)
+  .row.note-summary-meta
+    .col-md-10
+      = link_to note.user.name, user_path(note.user.username), class: 'user-name'
+    .col-md-2.text-right
+      %span.glyphicon.glyphicon-comment
+      %span=note.comments_count
   %h2= link_to note.title, note_path(note)
   - if note.tags.present?
     .tags
