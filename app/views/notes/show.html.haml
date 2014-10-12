@@ -22,9 +22,14 @@
           = link_to image_tag(fav.user.avatar_url, class: 'user-img-s img-rounded'), user_path(fav.user.username)
           - if fav.point > 1
             %span.favorite-point= fav.point
+  - if current_user.admin?
+    %div.margin-bm
+      %h3 Admin
+      = link_to 'Edit', edit_note_path(@note)
   %div
     %h3 Help
     = link_to 'Qiita Markdown?', "http://qiita.com/items/c686397e4a0f4f11683d", target: '_blank'
+
 .note
   %h1= @note.title
   .tags

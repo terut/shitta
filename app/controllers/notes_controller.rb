@@ -22,12 +22,12 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @note = current_user.notes.find(params[:id])
+    @note = find_note
     render :new
   end
 
   def update
-    @note = current_user.notes.find(params[:id])
+    @note = find_note
 
     if @note.update_attributes(note_params)
       redirect_to note_path(@note)
@@ -47,5 +47,12 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:raw_body, :title, :tag_list)
+  end
+
+  def find_note
+    if current_user.admin?
+      return Note.find(params[:id])
+    end
+    current_user.notes.find(params[:id])
   end
 end
