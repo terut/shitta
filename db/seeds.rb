@@ -7,3 +7,7 @@ admins.each do |admin|
     puts "#{admin} doesn't exist."
   end
 end
+
+Note.all.each do |note|
+  Note.reset_counters(note.id, :comments)
+end
