@@ -10,7 +10,7 @@
 .note-summaries {
   padding-left: 15px;
 }
-.note-summary{
+.note-summary {
   position: relative;
   background: $white;
   padding: 0;
@@ -38,11 +38,19 @@
     margin-bottom: 0;
     a {
       display: block;
-      padding: 10px 20px 10px 20px;
+      padding: 5px 20px 10px 20px;
       color: $mainTextColor;
     }
     a:hover {
       color: $mainColor;
+    }
+  }
+  .tags {
+    margin-bottom: 5px;
+    padding: 5px 20px 10px 20px;
+    a.tag {
+      background: $baseColor;
+      border: none;
     }
   }
 }

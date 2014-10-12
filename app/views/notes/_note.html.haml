@@ -2,3 +2,7 @@
   = link_to image_tag(note.user.avatar_url, class: 'user-img img-circle'), user_path(note.user.username), class: 'note-summary-user'
   .user-name= link_to note.user.name, user_path(note.user.username)
   %h2= link_to note.title, note_path(note)
+  - if note.tags.present?
+    .tags
+      - note.tags.each do |tag|
+        = link_to tag.name, "#", class: "tag"
