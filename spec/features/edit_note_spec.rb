@@ -48,6 +48,7 @@ RSpec.describe 'edit_note' do
 
       expect(page).not_to have_content 'Edit'
       expect(page).not_to have_content 'Connect Qiita'
+      expect(page).not_to have_content 'Admin'
     end
   end
 
