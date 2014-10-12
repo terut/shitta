@@ -94,15 +94,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 28px;
   height: 28px;
 }
-.user-name a {
-  display: inline-block;
-  color: $mainColor;
-  font-weight: bold;
-  @include font-large;
-}
-.user-name a:focus,
-.user-name a:hover {
-  color: $mainDarkColor;
+.user-name {
+  a {
+    display: inline-block;
+    color: $accentColor;
+    font-weight: bold;
+    @include font-large;
+  }
+  a:focus, a:hover {
+    color: $accentDarkColor;
+  }
 }
 .message {
   margin-bottom: 10px;
@@ -114,10 +115,16 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px;
     border: 1px solid $baseDarkColor;
     background: $white;
-    color: $accentColor;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     margin-right: 3px;
   }
+  a {
+    color: $accentColor;
+  }
+  a:focus, a:hover {
+    color: $accentDarkColor;
+  }
+
 }
