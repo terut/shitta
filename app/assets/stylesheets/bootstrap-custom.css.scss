@@ -1,0 +1,17 @@
+@import '_variables';
+@import 'bootstrap-sass-official/assets/stylesheets/_bootstrap-sprockets';
+@import 'bootstrap-sass-official/assets/stylesheets/_bootstrap';
+
+a:hover {
+  text-decoration: none;
+}
+.navbar-default {
+  padding-left: 30px;
+  padding-right: 30px;
+  .navbar-brand {
+    @include webfont-bold;
+  }
+  .navbar-nav.navbar-right {
+    margin-right: 0;
+  }
+}

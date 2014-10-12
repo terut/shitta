@@ -1,17 +1,19 @@
-%h1.title.shadow-line Connect Qiita Account
+%h1.hidden Connect Qiita Account
 - if @services.blank?   
-  .span5.offset3
-    = form_tag services_path do
-      = text_field_tag :username, params[:username], class: 'input-midium', placeholder: 'Username'
-      = password_field_tag :password, params[:password], class: 'input-midium', placeholder: 'Password'
+  .col-md-7
+    = form_tag services_path, role: 'form' do
+      .form-group
+        = text_field_tag :username, params[:username], class: 'form-control', placeholder: 'Username'
+      .form-group
+        = password_field_tag :password, params[:password], class: 'form-control', placeholder: 'Password'
       %div
-        = submit_tag 'Connect', class: 'btn btn-large btn-primary'
-        = link_to 'Cancel', root_path, class: 'btn btn-large'
+        = submit_tag 'Connect', class: 'btn btn-primary'
+        = link_to 'Cancel', root_path, class: 'btn btn-default'
 - else
-  %ul.unstyled.services
+  %ul.list-unstyled.services
     %li
-      .span3 Qiita 
-      .span5
+      .col-md-3 Qiita
+      .col-md-5
         Connected as: 
         = link_to "#{@services.first.username}", "http://qiita.com/users/#{@services.first.username}" 
-      .span3= link_to 'Disconnect', service_path('qiita'), class: 'btn btn-danger', method: :delete
+      .col-md-3= link_to 'Disconnect', service_path('qiita'), class: 'btn btn-danger', method: :delete

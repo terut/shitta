@@ -1,8 +1,12 @@
+- content_for :nav do
+  %ul.nav.nav-tabs.nav-justified{ role: 'tablist' }
+    %li.active= link_to 'Feed', '#'
+    %li= link_to 'Nippou', '#'
 - content_for :sidebar do
   %div
-    = link_to 'Post Note', new_note_path, class: 'btn btn-block btn-primary btn-large btn-large-font'
+    = link_to 'Post Note', new_note_path, class: 'btn btn-lg btn-primary btn-block'
   %div.margin-t
-    %h3.shadow-line TODO
+    %h3 TODO
     %ul
       %li user imageがdoara onlyで辛い
       %li はてなスターのような連打ビリティ
@@ -11,7 +15,7 @@
       %li previewが必要
       %li noteの定期な下書き保存
       %li 僕のやる気
-%h1.title.shadow-line Notes Feed
-%ul.margin-t.media-list
+%h1.hidden Notes Feed
+.note-summaries.margin-t
   = render @notes
-  = paginate @notes
+= paginate @notes

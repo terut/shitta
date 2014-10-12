@@ -1,10 +1,8 @@
 - content_for :content do
-  .row-fluid.margin-t
-    #sidebar.span3
-      .row-fluid
-        = image_tag user.avatar_url, class: 'margin-bm'
-        %p.profile-username= user.username
-    #main.span9
-      .row-fluid
-        = yield
+  .row.margin-t
+    #sidebar.col-md-3
+      = image_tag user.avatar_url, class: 'margin-bm img-thumbnail'
+      %p.profile-username= user.username
+    #main.col-md-9
+      = yield
 = render template: 'layouts/application'

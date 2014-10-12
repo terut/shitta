@@ -1,12 +1,13 @@
-.row-fluid.margin-t
-  - unless flash.alert.blank?
-    .alert.alert-error= flash.alert
-  - unless flash.notice.blank?
-    .alert.alert-success= flash.notice
-  .span4.offset4
-    = form_tag password_resets_path do
-      %h1 Forgot password
-      = text_field_tag :email, params[:email], class: 'input-midium', placeholder: 'Email'
+.row.margin-t
+  .col-md-4.col-md-offset-4
+    %h1.hidden Forgot password
+    - unless flash.alert.blank?
+      .message.text-danger= flash.alert
+    - unless flash.notice.blank?
+      .message.text-success= flash.notice
+    = form_tag password_resets_path, role: 'form' do
+      %span.help-block Enter your email address.
+      = text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Email'
       %div.margin-t
-        = submit_tag 'Submit', class: 'btn btn-large btn-primary'
-        = link_to 'Cancel', signin_path, class: 'btn btn-large'
+        = submit_tag 'Submit', class: 'btn btn-primary'
+        = link_to 'Cancel', signin_path, class: 'btn btn-default'

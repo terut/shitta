@@ -17,7 +17,7 @@ gem 'uglifier'
 gem 'therubyracer'
 gem 'hipchat'
 
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'bower-rails'
 
 gem 'bcrypt'
@@ -37,7 +37,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  #gem 'capybara-webkit'
   gem 'poltergeist'
   gem 'spring'
   gem 'spring-commands-rspec'

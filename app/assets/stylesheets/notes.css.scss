@@ -1,40 +1,87 @@
-// Place all the styles related to the notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import '_variables';
 
+// index
 .media h2 {
   margin-top: 5px;
   margin-bottom: 5px;
   line-height: 25px;
   font-size: 25px;
 }
-textarea#note_raw_body {
-    height: 500px;
+.note-summaries {
+  padding-left: 15px;
 }
+.note-summary{
+  position: relative;
+  background: $white;
+  padding: 0;
+  margin-top: 40px;
+  margin-bottom: 1em;
+  border: 1px solid $baseDarkColor;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  //border-bottom: 1px solid #eee;
+  //border-right: 1px solid #eee;
+  //border-left: 1px solid #fff;
+  .note-summary-user {
+    display: block;
+    left: -15px;
+    top: -20px;
+    position: absolute;
+  }
+  .user-name a {
+    display: block;
+    padding: 12px 10px 12px 52px;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    a {
+      display: block;
+      padding: 10px 20px 10px 20px;
+      color: $mainTextColor;
+    }
+    a:hover {
+      color: $mainColor;
+    }
+  }
+}
+// show
 .note, .comments {
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.6em;
   h1, h2, h3, h4, h5, h6 {
-    margin: 1em 0 15px;
+    line-height: 1.3em;
+    font-weight: bold;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $baseDarkColor;
   }
-  p {
-    margin: 15px 0;
+  h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+  }
+  h1 {
+    font-size: 26px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  p, ul {
+    margin: 0 0 16px 0;
   }
   li {
-    line-height: 1.7;
+    line-height: 1.7em;
   }
 }
 .code-container {
-  border: 1px solid #ccc;
-  margin: 0 0 10px;
+  border: 1px solid $baseDarkColor;
+  margin: 0 0 16px;
 
   .code-title {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $baseDarkColor;
     padding: 5px 15px;
     font-weight: bold;
-    color: #f7f7f7;
-    background-image: url(image-path('bg2.png'));
+    color: $subAccentColor;
+    background: $gray;
   }
   .code-main {
     overflow: auto;
@@ -43,10 +90,10 @@ textarea#note_raw_body {
     margin: 0 0;
     border: none;
     white-space: pre;
+    background: $white;
   }
   .linenos {
-    border-right: 1px solid #ccc;
-    background-color: #f5f5f5;
+    border-right: 1px solid $baseDarkColor;
   }
   .linenos pre {
     padding-left: 7.5px;
@@ -59,12 +106,17 @@ textarea#note_raw_body {
   .code {
     font: 12px Consolas, "Liberation Mono", Courier, monospace;
     width: 100%;
-    background-color: #f5f5f5;
   }
 }
 .comment {
   @include margin-tbase;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid $baseDarkColor;
+  .user-name {
+    margin-left: 3px;
+  }
   .comment-body {
+    margin-top: 5px;
     padding: 0 10px;
     padding-bottom: 0;
   }
@@ -84,64 +136,47 @@ textarea#note_raw_body {
   display:inline-block;
   margin-right: 3px;
   margin-bottom: 3px;
-  width: 28px;
-  height: 28px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  border-radius: 80px;
-  border: 3px solid #df769c;
   overflow: hidden;
-  img {
-    -webkit-border-radius: 75px;
-    -moz-border-radius: 75px;
-    border-radius: 75px;
-  }
   .favorite-point {
     position: absolute;
-    top: 19px;
+    top: 18px;
+    left: 0px;
     width: 28px;
     height: 10px;
-    background-color:rgba(0, 0, 0, 0.7);
-    color: #efefef;
+    //background-color:rgba(0, 0, 0, 0.8);
+    background-color: $mainColor;
+    color: $subAccentColor;
     text-align: center;
     padding: 0;
-    line-height: 1.2em;
-    font-size: 8px;
+    line-height: 1.0em;
+    font-size: 10px;
+    opacity: 0.8;
+    @include webfont-light;
   }
 }
-// tag input plugin style
-#note_title {
-  height: 47px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-#note_raw_body {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-div.tagsinput {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  border: 1px solid #ccc;
-  input {
+// custom bootstrap-tagsinput
+.bootstrap-tagsinput {
+  width: 100%;
+  padding: 6px 12px;
+  ::-webkit-input-placeholder { color: #777 }
+  :-moz-placeholder { color: #777 }
+  .label-info {
+    background-color: $gray;
+  }
+  .label {
+    font-weight: normal;
     font-size: 14px;
   }
-  span.tag {
-    border: 1px solid #aaa;
-    background: #ccc;
-    color: #555;
-
-    a {
-      color: #666;
-    }
+  .tag [data-role="remove"]:hover,
+  .tag [data-role="remove"]:hover:active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
   }
 }
-.not_valid {
-  height: 24px;
+.typeahead.dropdown-menu {
+  .active a {
+    background-color: $baseColor;
+    color: $mainTextColor;
+  }
 }
-//

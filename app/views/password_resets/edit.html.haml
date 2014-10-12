@@ -1,8 +1,8 @@
 .row-fluid.margin-t
   - unless flash.alert.blank?
-    .alert.alert-error= flash.alert
+    %p.message.text-dengar= flash.alert
   - unless flash.notice.blank?
-    .alert.alert-success= flash.notice
+    %p.message.text-success= flash.notice
   .span4.offset4
     = form_tag password_reset_path(@user.reset_token), method: :put do
       %h1 Reset password

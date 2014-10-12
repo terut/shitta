@@ -1,24 +1,38 @@
-// bootstrap patch
-//
-// @blue: #cbf2ff
-// @pink: #d64e80
-// hover: #c22d64
-// @linkColor: @pink
-// @navbarBackground: #222
-// @navbarBackgroundHighlight: #333
-// @navbarText: @white
-// @navbarLinkColor: @white
-// @navbarLinkColorHover: @pink
-// @dropdownBackground: @navbarBackground
-// @dropdownLinkColor: @white
-// @dropdownLinkColorHover: @pink
-// background-image: url(bg2.png);
-$white: #f7f7f7;
-$pink: #d64e80;
-$blue: #cbf2ff;
-$darkPink: #c22d64;
-$navbarActiveColor: #222;
-$mainTextColor: #333;
+$white: #fefefe;
+//$gray: #eee;
+//$gray: #e1e1e1;
+//$gray: #f7f5f3;
+$gray: #777;
+//$blue: #155399;
+//$blue: #4682b4;
+//$darkPink: #c90022;
+//$darkPink: #c22d64;
+
+// 70% white
+$baseColor: #f9f9f9;
+$baseDarkColor: #ddd;
+// 25% dark red
+$mainColor: #ca475c;
+$mainDarkColor: #ac3245;
+// 5% dark blue
+$accentColor: #155399;
+$accentDarkColor: #0c315b;
+$subAccentColor: #f7f7f7;
+$subAccentDarkColor: #ddd;
+// gray
+$mainTextColor: #444;
+// darkgray
+$subTextColor: #666;
+
+// Twitter Bootstrap
+$brand-primary: $mainColor;
+$body-bg: $baseColor;
+$navbar-height: 40px;
+$navbar-default-color: $subAccentColor;
+$navbar-default-bg: $white;
+$navbar-default-link-color: $mainColor;
+$navbar-default-link-active-color: $mainDarkColor;
+$navbar-default-link-hover-color: $mainDarkColor;
 
 @mixin margin-tbase {
   margin-top: 20px;

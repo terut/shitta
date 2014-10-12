@@ -14,6 +14,7 @@ module Notifier
   end
 
   def post_notify
+    return if Rails.env.development?
     message = "Oh,cool. New post arrived: #{self.title} #{note_url(self)}"
     notify(message)
   end

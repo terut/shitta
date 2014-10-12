@@ -56,6 +56,9 @@ module Shitta
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components', 'bootstrap-sass-official','assets', 'fonts')
+
+    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

@@ -22,6 +22,12 @@ Shitta::Application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
+  resources :tags, only: [] do
+    collection do
+      get :autocomplete
+    end
+  end
+
   resources :comments, except: [:index, :create]
 
   scope 'settings' do
