@@ -2,6 +2,9 @@
   %div
     = link_to 'Post Note', new_note_path, class: 'btn btn-lg btn-primary btn-block'
   %div.margin-t
+    %h3 Tags
+    = render partial: 'tags', object: @tags
+  %div.margin-t
     %h3 TODO
     %ul
       %li helpページ

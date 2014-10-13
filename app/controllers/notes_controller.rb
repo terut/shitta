@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   def index
     @notes = Note.with_tags.with_author.latest.page(params[:page])
+    @tags = Tag.all
   end
 
   def show
