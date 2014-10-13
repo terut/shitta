@@ -1,0 +1,4 @@
+- if tags.present?
+  .tags
+    - tags.each do |tag|
+      = link_to tag.name, tag_path(tag.name), class: "tag"

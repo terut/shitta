@@ -22,7 +22,7 @@ Shitta::Application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
-  resources :tags, only: [] do
+  resources :tags, only: [:show] do
     collection do
       get :autocomplete
     end

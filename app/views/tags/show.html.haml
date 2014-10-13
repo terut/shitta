@@ -1,0 +1,8 @@
+- content_for :sidebar do
+  %div
+    %h3 Tags
+    = render partial: 'tags', object: @tags
+%h1= @tag.name
+.note-summaries.margin-t
+  = render @notes
+= paginate @notes
