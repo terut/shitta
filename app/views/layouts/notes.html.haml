@@ -1,7 +1,6 @@
 - content_for :content do
   .row
     #main.col-md-9
-      = yield(:nav) if content_for?(:nav)
       = yield
     #sidebar.col-md-3
       = yield(:sidebar) if content_for?(:sidebar)

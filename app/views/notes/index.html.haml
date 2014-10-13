@@ -1,10 +1,9 @@
-- content_for :nav do
-  %ul.nav.nav-tabs.nav-justified{ role: 'tablist' }
-    %li.active= link_to 'Feed', '#'
-    %li= link_to 'Nippou', '#'
 - content_for :sidebar do
   %div
     = link_to 'Post Note', new_note_path, class: 'btn btn-lg btn-primary btn-block'
+  %div.margin-t
+    %h3 Tags
+    = render partial: 'tags', object: @tags
   %div.margin-t
     %h3 TODO
     %ul
