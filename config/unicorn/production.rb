@@ -1,6 +1,6 @@
 worker_processes 2
 
-app_path "/var/www/vhosts/shitta/current"
+app_path = "/var/www/vhosts/shitta/current"
 working_directory app_path
 
 listen '/tmp/unicorn_of_shitta.sock', :backlog => 64
