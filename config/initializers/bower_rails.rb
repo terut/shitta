@@ -1,3 +1,4 @@
+require 'bower-rails'
 BowerRails.configure do |bower_rails|
   # Tell bower-rails what path should be considered as root. Defaults to Dir.pwd
   # bower_rails.root_path = Dir.pwd
