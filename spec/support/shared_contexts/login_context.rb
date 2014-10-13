@@ -3,6 +3,7 @@ RSpec.shared_context 'login_flow' do
     visit '/signin'
     fill_in 'username', with: current_user.username
     fill_in 'password', with: current_user.password
+
     click_button 'Sign in'
   end
 end
