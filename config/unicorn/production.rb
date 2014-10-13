@@ -1,6 +1,7 @@
 worker_processes 2
 
-working_directory "/var/www/vhosts/shitta/current"
+app_path "/var/www/vhosts/shitta/current"
+working_directory app_path
 
 listen '/tmp/unicorn_of_shitta.sock', :backlog => 64
 pid 'tmp/pids/unicorn.pid'
@@ -16,7 +17,7 @@ GC.respond_to?(:copy_on_write_friendly=) and GC.copy_on_write_friendly = true
 check_client_connection false
 
 before_exec do |server|
-  ENV["BUNDLE_GEMFILE"] = "#{server.config[:working_directory]}/Gemfile"
+  ENV["BUNDLE_GEMFILE"] = "#{app_path}/Gemfile"
 end
 
 run_once = true
