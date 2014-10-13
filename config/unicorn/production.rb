@@ -16,7 +16,7 @@ GC.respond_to?(:copy_on_write_friendly=) and GC.copy_on_write_friendly = true
 check_client_connection false
 
 before_exec do |server|
-  ENV["BUNDLE_GEMFILE"] = "#{working_directory}/Gemfile"
+  ENV["BUNDLE_GEMFILE"] = "#{server.config[:working_directory]}/Gemfile"
 end
 
 run_once = true
