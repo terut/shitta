@@ -44,6 +44,6 @@ $ ->
     typeahead: {
       # TODO refactoring
       source: (query) ->
-        return $.get("//localhost:3000/tags/autocomplete.json?q=" + query)
+        return $.get("/tags/autocomplete.json?q=" + query)
     }
   })
