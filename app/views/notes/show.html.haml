@@ -35,6 +35,12 @@
   %h1= @note.title
   = render partial: 'tags', object: @note.tags
   ~ markdown @note.raw_body
+  .text-right.margin-bm
+    Posted by
+    = link_to image_tag(@note.user.avatar_url, class: 'user-img-s img-circle'), user_path(@note.user.username)
+    = link_to @note.user.name, user_path(@note.user.username), class: 'user-name'
+    at
+    = @note.posted_date
 .comments.margin-bm
   %h3 Comments
   %ul.list-unstyled
