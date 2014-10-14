@@ -54,6 +54,10 @@ class Note < ActiveRecord::Base
     !!self.uuid
   end
 
+  def posted_date
+    @posted_date ||= self.created_at.strftime("%Y/%m/%d")
+  end
+
   private
   def shared_items
     { title: self.title,
