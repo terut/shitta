@@ -1,4 +1,4 @@
-# TODO Test
+# TODO Test and refactoring
 module Notifier
   include Rails.application.routes.url_helpers
 
@@ -6,7 +6,7 @@ module Notifier
   HIPCHAT_ROOM = ENV['SHITTA_HIPCHAT_ROOM']
 
   def client
-    @client ||= HipChat::Client.new(HIPCHAT_API_TOKEN)
+    @client ||= HipChat::Client.new(HIPCHAT_API_TOKEN, api_version: 'v2')
   end
 
   def room
@@ -14,8 +14,12 @@ module Notifier
   end
 
   def post_notify
-    return if Rails.env.development?
-    message = "Oh,cool. New post arrived: #{self.title} #{note_url(self)}"
+    message = "Oh,cool. New post arrived by #{self.user.name}: #{self.title} #{note_url(self)}"
+    notify(message)
+  end
+
+  def comment_notify
+    message = "Wow! New comment arrived by #{self.user.name}: #{self.note.title} #{note_url(self.note)}"
     notify(message)
   end
 
