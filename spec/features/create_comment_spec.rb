@@ -4,6 +4,7 @@ RSpec.describe 'edit_note' do
   context 'edit with own note' do
     include_context 'login'
     before do
+      allow_any_instance_of(Comment).to receive(:comment_notify)
       @own_note = create(:note, user:current_user)
     end
     it 'success' do

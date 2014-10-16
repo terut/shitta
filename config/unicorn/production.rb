@@ -18,6 +18,7 @@ check_client_connection false
 
 before_exec do |server|
   ENV["BUNDLE_GEMFILE"] = "#{app_path}/Gemfile"
+  Dotenv.overload
 end
 
 run_once = true
