@@ -1,9 +1,10 @@
 worker_processes 2
 
-app_path = "/var/www/vhosts/shitta/current"
+service = "shitta"
+app_path = "/var/www/#{service}/current"
 working_directory app_path
 
-listen '/tmp/unicorn_of_shitta.sock', :backlog => 64
+listen "/tmp/#{service}.unicorn.sock", :backlog => 64
 pid 'tmp/pids/unicorn.pid'
 
 timeout 30
