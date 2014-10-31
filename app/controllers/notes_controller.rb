@@ -37,6 +37,14 @@ class NotesController < ApplicationController
     end
   end
 
+  def destroy
+    head :forbidden unless current_user.admin?
+
+    @note = find_note
+    @note.update_attributes(deleted_at: Time.now)
+    redirect_to note_path(@note)
+  end
+
   def share
     # TODO decorator
     @note = current_user.notes.find(params[:id])
@@ -54,6 +62,6 @@ class NotesController < ApplicationController
     if current_user.admin?
       return Note.find(params[:id])
     end
-    current_user.notes.find(params[:id])
+    current_user.notes.active.find(params[:id])
   end
 end

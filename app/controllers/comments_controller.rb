@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    @note = Note.find(params[:note_id])
+    @note = Note.active.find(params[:note_id])
     @comment = current_user.comments.build(comment_params)
     @comment.note = @note
     @comment.save
@@ -18,10 +18,6 @@ class CommentsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def destroy
-
   end
 
   private

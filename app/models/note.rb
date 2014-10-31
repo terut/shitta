@@ -17,6 +17,7 @@ class Note < ActiveRecord::Base
   scope :with_tags, -> { includes(:tags) }
   scope :with_author, -> { includes(:user) }
   scope :with_favorited_users, -> { includes(:favorited_users) }
+  scope :active, -> { where(deleted_at: nil) }
 
   after_create :post_notify
 
@@ -56,6 +57,10 @@ class Note < ActiveRecord::Base
 
   def posted_date
     @posted_date ||= self.created_at.strftime("%Y/%m/%d")
+  end
+
+  def active?
+    deleted_at.nil?
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012163444) do
+ActiveRecord::Schema.define(version: 20141031060206) do
 
   create_table "comments", force: true do |t|
     t.integer  "note_id",    null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20141012163444) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "comments_count", default: 0, null: false
+    t.datetime "deleted_at"
   end
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree

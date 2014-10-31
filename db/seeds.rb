@@ -1,4 +1,4 @@
-admins = ['admin']
+admins = ['test']
 admins.each do |admin|
   user = User.find_by_username(admin)
   if user.present?
@@ -8,6 +8,6 @@ admins.each do |admin|
   end
 end
 
-Note.all.each do |note|
-  Note.reset_counters(note.id, :comments)
-end
+#Note.all.each do |note|
+#  Note.reset_counters(note.id, :comments)
+#end
