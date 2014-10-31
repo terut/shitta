@@ -83,6 +83,17 @@
     line-height: 1.7em;
   }
 }
+.note {
+  .inactive-note {
+    @include margin-bbase;
+    background: $baseDarkColor;
+    p {
+      padding: 20px 0px;
+      text-align: center;
+      color: $mainColor;
+    }
+  }
+}
 .code-container {
   border: 1px solid $baseDarkColor;
   margin: 0 0 16px;

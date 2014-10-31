@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
 
   # TODO refactoring N+1 problem and rspec
   def create
-    note = Note.find(params[:note_id])
+    note = Note.active.find(params[:note_id])
     fav = current_user.favorites.find_by_note_id(note)
     params[:point] = 1 unless params[:point].to_i > 0
     if fav
@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    note = Note.find(params[:note_id])
+    note = Note.active.find(params[:note_id])
     fav = current_user.favorites.find_by_note_id(note)
     fav.destroy
     head :no_content
