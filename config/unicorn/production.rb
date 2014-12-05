@@ -1,10 +1,12 @@
 worker_processes 2
 
 service = "shitta"
+address = ENV['WITH_HTTP'] ? 8080
+                           : "/tmp/#{service}.unicorn.sock"
 app_path = "/var/www/#{service}/current"
 working_directory app_path
 
-listen "/tmp/#{service}.unicorn.sock", :backlog => 64
+listen address, :backlog => 64
 pid 'tmp/pids/unicorn.pid'
 
 timeout 30
