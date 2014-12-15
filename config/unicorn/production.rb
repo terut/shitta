@@ -1,10 +1,8 @@
 worker_processes 2
 
 service = "shitta"
-#address = ENV['WITH_HTTP'] ? 8080
-#                           : "/tmp/#{service}.unicorn.sock"
-#
-address = 8080
+address = ENV['WITH_HTTP'] ? 8080
+                           : "/tmp/#{service}.unicorn.sock"
 app_path = "/var/www/#{service}/current"
 working_directory app_path
 
