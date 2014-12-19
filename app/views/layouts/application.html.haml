@@ -14,10 +14,17 @@
         = link_to root_path, title: 'Shitta', class:'navbar-brand logo' do
           = image_tag 'logo.png', class: 'img-circle'
           %h1 Shitta
+        - if signin?
+          = form_tag search_notes_path, role: 'search', class: 'navbar-form navbar-left', method: :get do
+            .input-group
+              = text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Search'
+              %span.input-group-btn
+                = button_tag class: 'btn btn-default', name: nil do
+                  %i.glyphicon.glyphicon-search
         %ul.nav.navbar-nav.navbar-right
           %li.active=link_to 'Home', root_path
-          %li=link_to 'About', root_path
-          %li=link_to 'Contact', root_path
+          %li=link_to 'About', 'https://github.com/terut/shitta', target: '_blank'
+          %li=link_to 'Contact', 'https://github.com/terut/shitta/issues', target: '_blank'
           - if signin?
             %li.dropdown
               %div.current-user{ "data-toggle" => "dropdown" }= image_tag current_user.avatar_url, class: 'user-img-s img-rounded'

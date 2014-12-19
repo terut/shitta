@@ -52,6 +52,12 @@ class NotesController < ApplicationController
     redirect_to note_path(@note)
   end
 
+  def search
+    @notes = Note.with_tags.with_author.latest.search(params[:q]).page(params[:page])
+    @tags = Tag.all
+    render :index
+  end
+
   private
 
   def note_params

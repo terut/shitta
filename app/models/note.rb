@@ -21,6 +21,12 @@ class Note < ActiveRecord::Base
 
   after_create :post_notify
 
+  def self.search(query)
+    words = QueryParser.parse(query)
+    return all if words.blank?
+    words.inject(self) { |obj, word| obj.where('raw_body like ?', "%#{word}%") }
+  end
+
   def tag_list=(tag_list)
     tag_names = parse(tag_list)
     removal_marked(tag_names)

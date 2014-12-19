@@ -195,6 +195,40 @@ RSpec.describe Note do
     end
   end
 
+  describe ".search" do
+    before do
+      @note = create(:note_with_tags, raw_body: "good job\nthank you.")
+    end
+
+    context 'when query is nil, blank, em space' do
+      it 'result count is 1' do
+        expect(Note.search(nil).size).to be 1
+      end
+    end
+
+    context 'when query is nil, blank, em space' do
+      it 'result count is 1' do
+        expect(Note.search(' ').size).to be 1
+      end
+    end
+
+    context 'when query is nil, blank, em space' do
+      it 'result count is 1' do
+        expect(Note.search('　').size).to be 1
+      end
+    end
+
+    context "when query is 'good job'" do
+      it 'return ActiveRelation' do
+        expect(Note.search('good job')).to be_kind_of ActiveRecord::Relation
+      end
+
+      it 'result count is 1' do
+        expect(Note.search('good job').size).to eql 1
+      end
+    end
+  end
+
   describe "private #shared_options" do
     let(:note) { build(:note) }
     it { expect(note.__send__(:shared_items)).to include( private: true) }
