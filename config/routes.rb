@@ -37,6 +37,10 @@ Shitta::Application.routes.draw do
     put 'account' => 'users#update'
   end
 
+  scope 'search' do
+    get 'notes' => 'notes#search', as: :search_notes
+  end
+
   resources :sessions
 #  resources :sessions do
 #    collection do

@@ -6,11 +6,15 @@ module Notifier
   HIPCHAT_ROOM = ENV['SHITTA_HIPCHAT_ROOM']
 
   def client
-    @client ||= HipChat::Client.new(HIPCHAT_API_TOKEN, api_version: 'v2')
+    @client ||= HipChat::Client.new(token, api_version: 'v2')
   end
 
   def room
     HIPCHAT_ROOM
+  end
+
+  def token
+    HIPCHAT_API_TOKEN
   end
 
   def post_notify
@@ -25,6 +29,7 @@ module Notifier
 
   private
   def notify(message)
+    return unless room && token
     client[room].send('shitta', message, color: 'green', notify: true, message_format: 'text')
   end
 
