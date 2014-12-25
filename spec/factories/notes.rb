@@ -10,7 +10,7 @@ FactoryGirl.define do
       uuid { Digest::MD5.hexdigest(title) }
     end
 
-    ignore do
+    transient do
       tags_count 0
     end
 
