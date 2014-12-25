@@ -9,7 +9,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem 'qiita', '~> 0.0.3'
+gem 'qiita'
 
 gem 'sass-rails'
 gem 'coffee-rails'
