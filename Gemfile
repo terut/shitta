@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.0'
 gem 'mysql2'
 gem 'haml'
 gem 'redcarpet'
@@ -9,7 +9,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem 'qiita'
+gem 'qiita', '0.0.3'
 
 gem 'sass-rails'
 gem 'coffee-rails'
