@@ -5,9 +5,9 @@
       %p.message.text-danger= flash.alert
     = form_tag sessions_path, role: 'form' do
       .form-group
-        = text_field_tag :username, params[:username], class: 'form-control', placeholder: 'Username'
+        = text_field_tag :username, params[:username], class: 'form-control js-allow-submit', placeholder: 'Username'
       .form-group
-        = password_field_tag :password, params[:password], class: 'form-control', placeholder: 'Password'
+        = password_field_tag :password, params[:password], class: 'form-control js-allow-submit', placeholder: 'Password'
       %div= link_to 'Forgot password?', new_password_reset_path
       %div.margin-t
         = submit_tag 'Sign in', class: 'btn btn-primary'

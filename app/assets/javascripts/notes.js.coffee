@@ -28,7 +28,7 @@ class ShittaFav
     @timer = setTimeout hoge,700
 
 $ ->
-  $(document).on "keypress", "input:not(.allow_submit)", (event) -> event.which != 13
+  $(document).on "keypress", "input:not(.js-allow-submit)", (event) -> event.which != 13
 
   $ele = $('#fav')
   if ($ele)
