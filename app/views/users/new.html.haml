@@ -4,13 +4,13 @@
     = render partial: "errors", object: @user, as: :model
     = form_for @user, role: 'form' do |f|
       .form-group
-        = f.text_field :username, class: 'form-control', placeholder: 'Username'
+        = f.text_field :username, class: 'form-control js-allow-submit', placeholder: 'Username'
       .form-group
-        = f.text_field :email, class: 'form-control', placeholder: 'Email'
+        = f.text_field :email, class: 'form-control js-allow-submit', placeholder: 'Email'
       .form-group
-        = f.password_field :password, class: 'form-control', placeholder: 'Password'
+        = f.password_field :password, class: 'form-control js-allow-submit', placeholder: 'Password'
       .form-group
-        = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirmation'
+        = f.password_field :password_confirmation, class: 'form-control js-allow-submit', placeholder: 'Confirmation'
       %div
         = f.submit 'Create an account', class: 'btn btn-primary'
         = link_to 'Cancel', root_path, class: 'btn btn-default'
